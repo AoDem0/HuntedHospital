@@ -8,6 +8,7 @@ public class RoundController : MonoBehaviour
 {
     public static RoundController Instance { get; private set; }
 
+    public List<GameObject> spawnPoints = new List<GameObject>();
     public int currentDay;
     public float baseFeastSpeed = 1;
     public float bloodFromToday = 0;
@@ -16,27 +17,29 @@ public class RoundController : MonoBehaviour
     public GameObject patientPrefab;
     public GameObject ghostPrefab;
     public GameObject UI;
+    public GameObject HospitalDoors;
     [SerializeField] private TextMeshProUGUI dayNumDisplay;
+    [SerializeField] private TextMeshProUGUI patientNumDisplay;
 
     [Header("Listy")]
     [SerializeField] private List<PatientScript> patientList = new List<PatientScript>();
     [SerializeField] private List<GhostScript> ghostList = new List<GhostScript>();
     public List<BuffsSO> activeBuffs = new List<BuffsSO>();
-    public enum RoundPhase
+    public enum RoundPhases
     {
         DayStartPhase,
         FeastPhase,
         DealPhase
     }
 
-    private int patientsToSpawn;
+    private int patientsToSpawn = 5;
     private int ghostsToSpawn;
     public Vector2 spawnPoint;
     public Vector2 waitingRoom = new Vector2(100, 100);
 
     [Header(("Fazy rundy"))]
-    public RoundPhase roundPhase = RoundPhase.DayStartPhase;
-    public bool canStartNewDayPhase = false;
+    public RoundPhases roundPhase = RoundPhases.DayStartPhase;
+    public bool canStartNewDayPhase = true;
     public bool canStartFeastPhase = false;
     public bool canStartDealPhase = false;
 
@@ -51,17 +54,15 @@ public class RoundController : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        Instance.gameObject.SetActive(true);
-
         if (dayNumDisplay == null)
         {
             dayNumDisplay = UI.transform.Find("DayNumDisplay").GetComponent<TextMeshProUGUI>();
-        }    
+        }
     }
 
     private void Update()
     {
-        DisplayDay();
+        DisplayValues();
         RoundManager();
 
         Debug.Log($"Current Day: {currentDay}, Current Phase: {roundPhase}, Patients: {patientList.Count}, Ghosts: {ghostList.Count}, Blood Today: {bloodFromToday}");
@@ -73,8 +74,9 @@ public class RoundController : MonoBehaviour
     {
         if (canStartNewDayPhase)
         {
-            StartDayPhase();
             canStartNewDayPhase = false;
+            StartDayPhase();
+            Debug.Log("Day phase started");
         }
 
         if (canStartFeastPhase)
@@ -97,11 +99,8 @@ public class RoundController : MonoBehaviour
 
     public void StartDayPhase()
     {
-        Vector3 exactSpawnPoint = new Vector3(spawnPoint.x, spawnPoint.y, 0);
-        for (int i = 0; i < patientsToSpawn; i++)
-        {
-            GameObject newPatient = Instantiate(patientPrefab, exactSpawnPoint, Quaternion.identity);
-        }
+        roundPhase = RoundPhases.DayStartPhase;  
+        StartCoroutine(SpawnPatients(0.5f)); 
 
         if (patientList.Count == patientsToSpawn)
         {
@@ -111,14 +110,30 @@ public class RoundController : MonoBehaviour
 
     public void EndDayPhase()
     {
+        canStartNewDayPhase = false;
         canStartFeastPhase = true;
     }
 
     public void StartFeastPhase()
     {
+        roundPhase = RoundPhases.FeastPhase;
         float feastSpeed = baseFeastSpeed;
 
         StartCoroutine(Feasting(feastSpeed));
+    }
+
+    private IEnumerator SpawnPatients(float time)
+    {
+        for (int i = 0; i < patientsToSpawn; i++)
+        {
+            var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+            GameObject newPatient = Instantiate(patientPrefab, spawnPoint.transform.position, Quaternion.identity);
+            newPatient.GetComponent<PatientScript>().HospitalDoors = HospitalDoors.transform.position;
+
+            yield return new WaitForSeconds(time);
+        }
+        canStartNewDayPhase = false;
+
     }
 
     private IEnumerator Feasting(float time)
@@ -153,7 +168,7 @@ public class RoundController : MonoBehaviour
 
     public void StartDealPhase()
     {
-        
+        roundPhase = RoundPhases.DealPhase;
     }
 
     public void EndDealPhase()
@@ -163,13 +178,15 @@ public class RoundController : MonoBehaviour
     }
     #endregion ------------------------------------------
 
-    public void DisplayDay()
+    public void DisplayValues()
     {
         dayNumDisplay.text = currentDay.ToString();
+        patientNumDisplay.text = patientList.Count.ToString();
     }
     public void PatientEnteredHospital(PatientScript patient)
     {
         patientList.Add(patient);
         patient.transform.position = new Vector3(waitingRoom.x + patientList.Count, waitingRoom.y, 0);
+        patient.movedToWaitingRoom = true;
     }
 }
