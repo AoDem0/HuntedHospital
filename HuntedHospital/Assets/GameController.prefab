@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8088248091688524511}
-  - component: {fileID: 4821019593879151799}
+  - component: {fileID: 5508224209428447848}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4821019593879151799
+--- !u!114 &5508224209428447848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,9 +47,10 @@ MonoBehaviour:
   currentDay: 0
   baseFeastSpeed: 1
   bloodFromToday: 0
-  patientPrefab: {fileID: 0}
-  ghostPrefab: {fileID: 0}
+  patientPrefab: {fileID: 5232124977747296394, guid: c825c18272dea334b967b8987d85253f, type: 3}
+  ghostPrefab: {fileID: 6118684877182924430, guid: 80b63e1e4b28f0345ade2635670695bb, type: 3}
   UI: {fileID: 0}
+  dayNumDisplay: {fileID: 0}
   patientList: []
   ghostList: []
   activeBuffs: []

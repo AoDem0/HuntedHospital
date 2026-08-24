@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class PatientScript : MonoBehaviour
 {
     public float bloodAmmount;
-    float maxBloodAmmount;
-    float minBloodAmmount;
+    float maxBloodAmmount = 6;
+    float minBloodAmmount = 4;
     Collider2D col;
     SpriteRenderer spriteRenderer;
     List<Sprite> sprites  = new List<Sprite>();
@@ -18,7 +18,7 @@ public class PatientScript : MonoBehaviour
 
         if(spriteRenderer  != null)
         {
-            spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
+            //spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
         }
         bloodAmmount = GetRandomBloodAmmount();
     }

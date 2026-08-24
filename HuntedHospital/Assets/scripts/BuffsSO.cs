@@ -7,7 +7,6 @@ public class BuffsSO : ScriptableObject
     public static int buffTier;
     public static int buffBaseTime;
     public int buffCurrentTime;
-    public static int buffCost;
     public enum BuffTypes
     {
         FeastSpeedBuff,

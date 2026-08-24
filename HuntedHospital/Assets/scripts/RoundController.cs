@@ -44,19 +44,27 @@ public class RoundController : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            Debug.Log($"Duplikat singletonu ID {GetInstanceID()}, Instance ID {Instance.GetInstanceID()} został zniszczony!");
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        Instance.gameObject.SetActive(true);
 
-        dayNumDisplay = UI.transform.Find("DayNumDisplay").GetComponent<TextMeshProUGUI>();
+        if (dayNumDisplay == null)
+        {
+            dayNumDisplay = UI.transform.Find("DayNumDisplay").GetComponent<TextMeshProUGUI>();
+        }    
     }
 
     private void Update()
     {
         DisplayDay();
         RoundManager();
+
+        Debug.Log($"Current Day: {currentDay}, Current Phase: {roundPhase}, Patients: {patientList.Count}, Ghosts: {ghostList.Count}, Blood Today: {bloodFromToday}");
     }
 
     #region ------ RoundHandler ------
@@ -115,17 +123,24 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator Feasting(float time)
     {
+        List<PatientScript> patientsToRemove = new List<PatientScript>(patientList);
         foreach (var patient in patientList)
         {
             bloodFromToday += patient.bloodAmmount;
-            patientList.Remove(patient);
-            Destroy(patient);
+            patientsToRemove.Add(patient);
 
             GameObject newGhost = Instantiate(ghostPrefab, Vector3.zero, Quaternion.identity);
             //te duszki mogą sobie latać po ekranie 
             ghostList.Add(newGhost.GetComponent<GhostScript>());
 
             yield return new WaitForSeconds(time);
+
+        }
+
+        foreach(var patient in patientsToRemove)
+        {
+            patientList.Remove(patient);
+            Destroy(patient);
 
         }
         EndFeastPhase();
@@ -156,10 +171,5 @@ public class RoundController : MonoBehaviour
     {
         patientList.Add(patient);
         patient.transform.position = new Vector3(waitingRoom.x + patientList.Count, waitingRoom.y, 0);
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log($"{gameObject.name} został wyłączony!\n" + System.Environment.StackTrace);
     }
 }
