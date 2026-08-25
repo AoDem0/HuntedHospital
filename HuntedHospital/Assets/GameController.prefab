@@ -44,19 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8b0f4a8dd7f2f44b2087a818ddda00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoundController
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   currentDay: 0
   baseFeastSpeed: 1
   bloodFromToday: 0
   patientPrefab: {fileID: 5232124977747296394, guid: c825c18272dea334b967b8987d85253f, type: 3}
   ghostPrefab: {fileID: 6118684877182924430, guid: 80b63e1e4b28f0345ade2635670695bb, type: 3}
-  UI: {fileID: 0}
+  UI: {fileID: 2450030494927696528, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+  HospitalDoors: {fileID: 0}
   dayNumDisplay: {fileID: 0}
+  patientNumDisplay: {fileID: 0}
+  ghostNumDisplay: {fileID: 0}
   patientList: []
   ghostList: []
   activeBuffs: []
   spawnPoint: {x: 0, y: 0}
   waitingRoom: {x: 100, y: 100}
   roundPhase: 0
-  canStartNewDayPhase: 0
+  canStartNewDayPhase: 1
   canStartFeastPhase: 0
   canStartDealPhase: 0

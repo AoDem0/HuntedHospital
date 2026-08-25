@@ -784,10 +784,6 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
-      propertyPath: UI
-      value: 
-      objectReference: {fileID: 2450030494927696528, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
-    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: HospitalDoors
       value: 
       objectReference: {fileID: 1842796257}
@@ -796,17 +792,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1782797703}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+      propertyPath: ghostNumDisplay
+      value: 
+      objectReference: {fileID: 1467394961}
+    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: patientNumDisplay
       value: 
       objectReference: {fileID: 505321744}
-    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
-      propertyPath: canStartNewDayPhase
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
-      propertyPath: spawnPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
@@ -868,6 +860,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 548184585084677492, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 855260141365189642, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -43.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611090425855154950, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_text
+      value: 000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683607582968460069, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2046166249821290944, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -890,7 +898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2221148350128301357, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -126.7
+      value: -85
       objectReference: {fileID: 0}
     - target: {fileID: 2221148350128301357, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -988,15 +996,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7734009954051581942, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_text
+      value: Duchy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771897153161983197, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
+      objectReference: {fileID: 0}
     - target: {fileID: 8744633925809240162, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_Name
       value: PatientNumDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 9091286807899631815, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 460997046509810537, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+--- !u!114 &1467394961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1611090425855154950, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+  m_PrefabInstance: {fileID: 1318330905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1471959803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 479055068289420482, guid: 2876ef111d5979a47a086104aaf9a924, type: 3}

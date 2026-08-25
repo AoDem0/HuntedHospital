@@ -20,6 +20,7 @@ public class RoundController : MonoBehaviour
     public GameObject HospitalDoors;
     [SerializeField] private TextMeshProUGUI dayNumDisplay;
     [SerializeField] private TextMeshProUGUI patientNumDisplay;
+    [SerializeField] private TextMeshProUGUI ghostNumDisplay;
 
     [Header("Listy")]
     [SerializeField] private List<PatientScript> patientList = new List<PatientScript>();
@@ -33,6 +34,7 @@ public class RoundController : MonoBehaviour
     }
 
     private int patientsToSpawn = 5;
+    private int patientsInHospital = 0;
     private int ghostsToSpawn;
     public Vector2 spawnPoint;
     public Vector2 waitingRoom = new Vector2(100, 100);
@@ -40,6 +42,7 @@ public class RoundController : MonoBehaviour
     [Header(("Fazy rundy"))]
     public RoundPhases roundPhase = RoundPhases.DayStartPhase;
     public bool canStartNewDayPhase = true;
+    public bool canEndNewDayPhase = false;
     public bool canStartFeastPhase = false;
     public bool canStartDealPhase = false;
 
@@ -79,16 +82,24 @@ public class RoundController : MonoBehaviour
             Debug.Log("Day phase started");
         }
 
+        if (patientList.Count == patientsToSpawn && canEndNewDayPhase)
+        {
+            EndDayPhase();
+            
+        }
+
         if (canStartFeastPhase)
         {
             StartFeastPhase();
             canStartFeastPhase = false;
+            Debug.Log("Feast phase started");   
         }
 
         if (canStartDealPhase)
         {
             StartDealPhase();
             canStartDealPhase = false;
+            Debug.Log("Deal phase started");
         }
     }
 
@@ -102,14 +113,12 @@ public class RoundController : MonoBehaviour
         roundPhase = RoundPhases.DayStartPhase;  
         StartCoroutine(SpawnPatients(0.5f)); 
 
-        if (patientList.Count == patientsToSpawn)
-        {
-            EndDayPhase();
-        }
+ 
     }
 
     public void EndDayPhase()
     {
+        canEndNewDayPhase = false;
         canStartNewDayPhase = false;
         canStartFeastPhase = true;
     }
@@ -118,6 +127,7 @@ public class RoundController : MonoBehaviour
     {
         roundPhase = RoundPhases.FeastPhase;
         float feastSpeed = baseFeastSpeed;
+        canStartFeastPhase = false;
 
         StartCoroutine(Feasting(feastSpeed));
     }
@@ -132,8 +142,7 @@ public class RoundController : MonoBehaviour
 
             yield return new WaitForSeconds(time);
         }
-        canStartNewDayPhase = false;
-
+        canEndNewDayPhase = true;
     }
 
     private IEnumerator Feasting(float time)
@@ -142,7 +151,8 @@ public class RoundController : MonoBehaviour
         foreach (var patient in patientList)
         {
             bloodFromToday += patient.bloodAmmount;
-            patientsToRemove.Add(patient);
+            patientsInHospital -= 1;
+            Destroy(patient);
 
             GameObject newGhost = Instantiate(ghostPrefab, Vector3.zero, Quaternion.identity);
             //te duszki mogą sobie latać po ekranie 
@@ -152,12 +162,7 @@ public class RoundController : MonoBehaviour
 
         }
 
-        foreach(var patient in patientsToRemove)
-        {
-            patientList.Remove(patient);
-            Destroy(patient);
-
-        }
+        patientList.Clear();
         EndFeastPhase();
     }
 
@@ -181,11 +186,13 @@ public class RoundController : MonoBehaviour
     public void DisplayValues()
     {
         dayNumDisplay.text = currentDay.ToString();
-        patientNumDisplay.text = patientList.Count.ToString();
+        patientNumDisplay.text = patientsInHospital.ToString();
+        ghostNumDisplay.text = ghostList.Count.ToString();
     }
     public void PatientEnteredHospital(PatientScript patient)
     {
         patientList.Add(patient);
+        patientsInHospital += 1;
         patient.transform.position = new Vector3(waitingRoom.x + patientList.Count, waitingRoom.y, 0);
         patient.movedToWaitingRoom = true;
     }
