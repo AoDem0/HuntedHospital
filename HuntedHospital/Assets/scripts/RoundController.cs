@@ -33,7 +33,7 @@ public class RoundController : MonoBehaviour
         DealPhase
     }
 
-    private int patientsToSpawn = 5;
+    public int patientsToSpawn = 5;
     private int patientsInHospital = 0;
     private int ghostsToSpawn;
     public Vector2 spawnPoint;
@@ -110,10 +110,9 @@ public class RoundController : MonoBehaviour
 
     public void StartDayPhase()
     {
+        NextRound();
         roundPhase = RoundPhases.DayStartPhase;  
-        StartCoroutine(SpawnPatients(0.5f)); 
-
- 
+        StartCoroutine(SpawnPatients(0.5f));  
     }
 
     public void EndDayPhase()
@@ -179,7 +178,6 @@ public class RoundController : MonoBehaviour
     public void EndDealPhase()
     {
         canStartNewDayPhase = true;
-        NextRound();
     }
     #endregion ------------------------------------------
 

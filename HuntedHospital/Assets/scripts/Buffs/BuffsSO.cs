@@ -11,7 +11,7 @@ public class BuffsSO : ScriptableObject
     {
         FeastSpeedBuff,
         BloodGainBuff,
-        PatientSpawnBuff,
+        PatientCountBuff,
         GhostSpawnBuff
     }
 

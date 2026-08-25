@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Feast_Buff", menuName = "Buffs/BuffsSO")]
+[CreateAssetMenu(fileName = "Feast_Buff", menuName = "Buffs/Feast_Buff")]
 public class FeastBuff : BuffsSO
 {
     public float FeastSpeedBuff = buffTier *  0.1f;
