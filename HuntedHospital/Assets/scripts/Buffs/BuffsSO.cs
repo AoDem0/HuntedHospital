@@ -3,18 +3,35 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuffsSO", menuName = "Buffs/BuffsSO", order = 1)]
 public class BuffsSO : ScriptableObject
 {
+    [Header("Buff Info")]
     public string buffName;
-    public static int buffTier;
-    public static int buffBaseTime;
+    public string buffDescription;
+    public int buffTier = 1;
+    public int buffBaseTime;
     public int buffCurrentTime;
+    public int buffCost;
     public enum BuffTypes
     {
         FeastSpeedBuff,
-        BloodGainBuff,
+        BloodReceivedBuff,
         PatientCountBuff,
-        GhostSpawnBuff
     }
 
-    
+    public void OnEnable()
+    {
+        RecalculateStats();
+    }
+
+    public virtual void RecalculateStats()
+    {
+        buffBaseTime = buffTier + 2;
+        buffCost = buffTier * 5;
+    }
+
+    public virtual void ModifyStats() 
+    {
+        RoundController.Instance.currentGhostCount -= 5;
+    }
+    public virtual void UnmodifyStats() { }
 
 }

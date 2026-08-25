@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < deathPanels.Count; i++)
         { 
             int randidx = Random.Range(0, allDeals.Count + 1);
-            deathPanels[i].ReloadPanel(allDeals[randidx]);
+            //deathPanels[i].ReloadPanel(allDeals[randidx]);
         }
         
     }
