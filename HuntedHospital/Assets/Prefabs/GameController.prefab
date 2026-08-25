@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8088248091688524511}
   - component: {fileID: 5508224209428447848}
+  - component: {fileID: 5251631169498761454}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -49,20 +50,36 @@ MonoBehaviour:
   - {fileID: 0}
   currentDay: 0
   baseFeastSpeed: 1
-  bloodFromToday: 0
+  bloodInBank: 0
   patientPrefab: {fileID: 5232124977747296394, guid: c825c18272dea334b967b8987d85253f, type: 3}
   ghostPrefab: {fileID: 6118684877182924430, guid: 80b63e1e4b28f0345ade2635670695bb, type: 3}
   UI: {fileID: 2450030494927696528, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
   HospitalDoors: {fileID: 0}
-  dayNumDisplay: {fileID: 0}
-  patientNumDisplay: {fileID: 0}
-  ghostNumDisplay: {fileID: 0}
   patientList: []
   ghostList: []
   activeBuffs: []
+  patientsToSpawn: 5
+  patientsInHospital: 0
+  currentGhostCount: 0
   spawnPoint: {x: 0, y: 0}
   waitingRoom: {x: 100, y: 100}
+  bloodReceivedMultiplier: 1
+  feastSpeedMultiplier: 1
+  patientCountMultiplier: 1
   roundPhase: 0
   canStartNewDayPhase: 1
+  canEndNewDayPhase: 0
   canStartFeastPhase: 0
   canStartDealPhase: 0
+--- !u!114 &5251631169498761454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579208753114551175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d02e94747eece44597c76e5c9d8071b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffManager
