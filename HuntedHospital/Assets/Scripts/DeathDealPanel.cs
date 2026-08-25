@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DeathDealPanel : MonoBehaviour
 {
-    [SerializeField] private DeathDealSO deathDeal;
+    //[SerializeField] private DeathDealSO deathDeal;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Button button;
 
@@ -17,10 +17,7 @@ public class DeathDealPanel : MonoBehaviour
         if(button!=null) Debug.Log("found button");
     }
 
-    private void Start()
-    {//do zmiany, tym ma zarzadzac gameman
-        ReloadPanel(deathDeal);
-    }
+    
 
     public void ReloadPanel(DeathDealSO deal)
     {
@@ -35,7 +32,11 @@ public class DeathDealPanel : MonoBehaviour
         text.text += "Price: " + deal.SoulPrice.ToString();
     }
 
-    //public void 
+    public void SendDealInfo()
+    {
+        //wyslanie do gamemanagera danych
+        //DeactivateDeathPanel()
+    }
     public void DeactivateDeathPanel()
     {
         text.text = "";
