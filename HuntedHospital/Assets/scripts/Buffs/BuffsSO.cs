@@ -30,7 +30,7 @@ public class BuffsSO : ScriptableObject
 
     public virtual void ModifyStats() 
     {
-        RoundController.Instance.currentGhostCount -= 5;
+        RoundController.Instance.currentGhostCount -= buffCost;
     }
     public virtual void UnmodifyStats() { }
 

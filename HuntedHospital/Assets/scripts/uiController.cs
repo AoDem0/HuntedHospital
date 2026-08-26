@@ -12,6 +12,7 @@ public class uiController : MonoBehaviour
     public TextMeshProUGUI ghostNumDisplay;
     public TextMeshProUGUI bloodAmmountDisplay;
     public GameObject buffListPanel;
+    public GameObject buffListContent;
     public GameObject buffTile;
     public ColorForTierScript colorForTier;
 

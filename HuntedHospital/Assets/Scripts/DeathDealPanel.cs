@@ -86,7 +86,7 @@ public class DeathDealPanel : MonoBehaviour
         }
         else if(RoundController.Instance.currentGhostCount < buff.buffCost)
         {
-            SC.NotEnoguhGhosts();
+            SC.TriggerNotEnoguhGhosts();
             Debug.LogWarning("Nie masz wystarczającej ilości dusz, aby wybrać ten buff.");
         }
 

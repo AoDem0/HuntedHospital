@@ -52,7 +52,7 @@ public class BuffManager : MonoBehaviour
         newBuff.buffCurrentTime = newBuff.buffBaseTime;
 
         var UI = uiController.Instance;
-        GameObject newBuffTile = Instantiate(UI.buffTile, UI.buffListPanel.transform);
+        GameObject newBuffTile = Instantiate(UI.buffTile, UI.buffListContent.transform);
         activeBuffsDic.Add(newBuff, newBuffTile);
 
         UI.DisplayBuffValues(activeBuffsDic);
