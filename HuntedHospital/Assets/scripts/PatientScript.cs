@@ -10,22 +10,30 @@ public class PatientScript : MonoBehaviour
     Collider2D col;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
-    List<Sprite> sprites  = new List<Sprite>();
+    public SpritePacjentów patientSpritesLeft;
+    public SpritePacjentów patientSpritesRight;
     public Vector3 HospitalDoors;
     public float moveSpeed = 3f;
     public bool movedToWaitingRoom = false;
+    public enum PatientSpawnSide
+    {
+        Left,
+        Right
+    }
 
     void Awake()
     {
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        
 
         if(spriteRenderer  != null)
         {
             //spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
         }
         bloodAmmount = GetRandomBloodAmmount();
+
     }
 
     private void Update()
@@ -53,6 +61,18 @@ public class PatientScript : MonoBehaviour
         {
             RoundController.Instance.PatientEnteredHospital(this);
             Debug.Log($"Patient entered the hospital with {bloodAmmount} blood.");
+        }
+    }
+
+    public void SetSpriteForSide(PatientSpawnSide side)
+    {
+        if (side == PatientSpawnSide.Left)
+        {
+            spriteRenderer.sprite = patientSpritesRight.SpriteList[Random.Range(0, patientSpritesLeft.SpriteList.Count)];
+        }
+        else if (side == PatientSpawnSide.Right)
+        {
+            spriteRenderer.sprite = patientSpritesLeft.SpriteList[Random.Range(0, patientSpritesRight.SpriteList.Count)];
         }
     }
 

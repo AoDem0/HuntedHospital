@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatientScript
   bloodAmmount: 0
+  patientSpritesLeft: {fileID: 11400000, guid: c2c74aac9f958b2438b1c70ec85f04f9, type: 2}
+  patientSpritesRight: {fileID: 11400000, guid: 3e08d216ccc93f2448a0e12cd1d4509a, type: 2}
   HospitalDoors: {x: 0, y: 0, z: 0}
   moveSpeed: 3
   movedToWaitingRoom: 0
@@ -100,7 +102,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4533050914065480678, guid: 2a1dd63e5ce3ec54da41e4a90ea6ffd0, type: 3}
+  m_Sprite: {fileID: -281013231135707383, guid: 576e6bc800569ba429dcac26c7930c89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Patient_Count_Buff
   m_EditorClassIdentifier: Assembly-CSharp::PatientCountBuff
   buffName: "Przyjd\u017A ze znajomym"
-  buffDescription: 
+  buffDescription: "Do szpitala przybywa wi\u0119cej pacjent\xF3w"
   buffTier: 1
   buffBaseTime: 3
   buffCurrentTime: 0

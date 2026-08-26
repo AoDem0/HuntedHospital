@@ -1,14 +1,16 @@
 using NUnit.Framework;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopController : MonoBehaviour
 {
     public List<DeathDealPanel> dealPanels = new List<DeathDealPanel>();
     public List<BuffsSO> allBuffs = new List<BuffsSO>();
     public List<BuffsSO> buffsToUse = new List<BuffsSO>();
-    public List<int> buffsInUse = new List<int>();
-
+    public GameObject GhostWarningObject; 
     void Awake()
     {
         if (dealPanels.Count == 0)
@@ -16,6 +18,7 @@ public class ShopController : MonoBehaviour
             Debug.Log("Not all panels were found");
         }
         CreateRandomBuffs(allBuffs);
+        GhostWarningObject = GameObject.Find("GhostWarningObject");
     }
 
     private void CreateRandomBuffs(List<BuffsSO> allBuffs)
@@ -40,7 +43,7 @@ public class ShopController : MonoBehaviour
                 tier = 3;
             }
             buff.buffTier =  tier;
-
+            buff.RecalculateStats();
             panel.SetBuffOnDealPanel(buff);
 
         }
@@ -54,5 +57,30 @@ public class ShopController : MonoBehaviour
         return buff;
     }
 
+    public void NotEnoguhGhosts()
+    {
+        StartCoroutine(ShowGhostWarning(5f));
+    }
 
+    private IEnumerator ShowGhostWarning(float time)
+    {
+        GhostWarningObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+        GhostWarningObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+    }
 }

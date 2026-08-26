@@ -41,7 +41,9 @@ public class RoundController : MonoBehaviour
     [Header("Stat Multipliers")]
     public float bloodReceivedMultiplier = 1f;
     public float feastSpeedMultiplier = 1f;
-    public float patientCountMultiplier = 1f;
+    public int patientCountMultiplier = 0;
+    public int totalPatientsToSpawn;
+
 
     [Header(("Fazy rundy"))]
     public RoundPhases roundPhase = RoundPhases.DayStartPhase;
@@ -85,7 +87,7 @@ public class RoundController : MonoBehaviour
             //Debug.Log("Day phase started");
         }
 
-        if (patientList.Count == patientsToSpawn && canEndNewDayPhase)
+        if (patientList.Count == totalPatientsToSpawn && canEndNewDayPhase)
         {
             EndDayPhase();
             
@@ -159,11 +161,23 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator SpawnPatients(float time)
     {
-        for (int i = 0; i < patientsToSpawn; i++)
+        totalPatientsToSpawn = patientsToSpawn + patientCountMultiplier;
+        for (int i = 0; i < totalPatientsToSpawn; i++)
         {
             var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
             GameObject newPatient = Instantiate(patientPrefab, spawnPoint.transform.position, Quaternion.identity);
-            newPatient.GetComponent<PatientScript>().HospitalDoors = HospitalDoors.transform.position;
+            PatientScript PS = newPatient.GetComponent<PatientScript>();
+
+            if (spawnPoint.name == "SpawnPointLeft")
+            {
+                PS.SetSpriteForSide(PatientScript.PatientSpawnSide.Left);
+            }
+            else if (spawnPoint.name == "SpawnPointRight")
+            {
+                PS.SetSpriteForSide(PatientScript.PatientSpawnSide.Right);
+            }
+
+            PS.HospitalDoors = HospitalDoors.transform.position;
 
             yield return new WaitForSeconds(time);
         }
@@ -172,9 +186,9 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator Feasting(float time)
     {
-        List<PatientScript> patientsToRemove = new List<PatientScript>(patientList);
-        foreach (var patient in patientList)
+        for (int i = patientList.Count - 1; i >= 0; i--)
         {
+            var patient = patientList[i];
             bloodInBank += (patient.bloodAmmount * bloodReceivedMultiplier);
             patientsInHospital -= 1;
             Destroy(patient);

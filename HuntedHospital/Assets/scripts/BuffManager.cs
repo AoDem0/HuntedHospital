@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuffManager : MonoBehaviour
 {
     public static BuffManager Instance { get; private set; }
+    Dictionary<BuffsSO, GameObject> activeBuffsDic = new Dictionary<BuffsSO, GameObject>();
     private float baseFeastTime;
     private void Start()
     {
@@ -30,9 +32,16 @@ public class BuffManager : MonoBehaviour
             {
                 buff.UnmodifyStats();
                 buffs.RemoveAt(i);
+
+                if(activeBuffsDic.TryGetValue(buff, out GameObject tile))
+                {
+                    Destroy(tile);
+                    activeBuffsDic.Remove(buff);
+                }
                 Destroy(buff);
             }
         }
+        uiController.Instance.DisplayBuffValues(activeBuffsDic);
     }
 
     public void AddBuffToList(BuffsSO buff)
@@ -40,6 +49,13 @@ public class BuffManager : MonoBehaviour
         BuffsSO newBuff = Instantiate(buff);
         RoundController.Instance.activeBuffs.Add(newBuff);
         newBuff.ModifyStats();
+        newBuff.buffCurrentTime = newBuff.buffBaseTime;
+
+        var UI = uiController.Instance;
+        GameObject newBuffTile = Instantiate(UI.buffTile, UI.buffListPanel.transform);
+        activeBuffsDic.Add(newBuff, newBuffTile);
+
+        UI.DisplayBuffValues(activeBuffsDic);
     }
     
 }
