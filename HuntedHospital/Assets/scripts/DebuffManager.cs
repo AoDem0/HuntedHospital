@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DebuffManager : MonoBehaviour
+{
+    public static DebuffManager instance { get; private set; }
+    public int threshold1 = 25;
+    public int threshold2 = 50;
+    public int threshold3 = 75;
+    public float patientsDebuffMultiplier = 1f;
+    private float thresholdDebuff = 0.25f;
+    private int GhostCount;
+    private RoundController RC;
+
+    public void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        RC = RoundController.Instance;
+    }
+
+    public void Update()
+    {
+        RefreshValues();
+    }
+
+    public void RefreshValues()
+    {
+        if (RC == null)
+        {
+            RC = RoundController.Instance;
+            if (RC != null)
+            {
+                Debug.LogWarning("RoundController instance was null in DebuffManager. Refreshed the reference.");
+                return;
+            }
+        }
+        GhostCount = RC.currentGhostCount;
+
+        if (GhostCount > threshold1 && GhostCount < threshold2)
+        {
+            patientsDebuffMultiplier = 1f - thresholdDebuff;
+        }
+        else if (GhostCount > threshold2 && GhostCount < threshold3)
+        {
+            patientsDebuffMultiplier = 1f - 2 * thresholdDebuff;
+        }
+        else if (GhostCount > threshold3)
+        {
+            patientsDebuffMultiplier = 1f - 3 * thresholdDebuff;
+        }
+        else
+        {
+            patientsDebuffMultiplier = 1;
+        }
+        //Tak, da się to zrobić lepiej, ale nie umiem i czas mnie goni ~Vegot xD
+    }
+
+}

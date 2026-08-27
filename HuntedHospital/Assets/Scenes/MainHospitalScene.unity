@@ -630,8 +630,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2579208753114551175, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1228112731}
   m_SourcePrefab: {fileID: 100100000, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+--- !u!1 &1228112730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2579208753114551175, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+  m_PrefabInstance: {fileID: 1228112729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228112731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228112730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3d0054e1bef1147afd3eeffda4c6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebuffManager
+  threshold1: 25
+  threshold2: 50
+  threshold3: 75
+  patientsDebuffMultiplier: 1
 --- !u!1 &1296775632
 GameObject:
   m_ObjectHideFlags: 0

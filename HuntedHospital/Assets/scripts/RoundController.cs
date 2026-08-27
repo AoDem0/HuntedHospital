@@ -9,6 +9,7 @@ public class RoundController : MonoBehaviour
 {
     public static RoundController Instance { get; private set; }
     public BuffManager buffManager { get; private set; }
+    public DebuffManager debuffManager { get; private set; }
 
     public List<GameObject> spawnPoints = new List<GameObject>();
     public int currentDay;
@@ -64,6 +65,7 @@ public class RoundController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         buffManager = GetComponent<BuffManager>();
+        debuffManager = GetComponent<DebuffManager>();
         RefreshSceneObjects();
 
     }
