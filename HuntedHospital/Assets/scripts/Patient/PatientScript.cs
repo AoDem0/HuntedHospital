@@ -15,6 +15,10 @@ public class PatientScript : MonoBehaviour
     public Vector3 HospitalDoors;
     public float moveSpeed = 3f;
     public bool movedToWaitingRoom = false;
+    public PatientCharacteristicsSO currentChar = null;
+    public PatientCharacteristicsSO averageJoeChar;
+    public List<PatientCharacteristicsSO> characteristicList;
+    public bool canGoToExit = false;
     public enum PatientSpawnSide
     {
         Left,
@@ -26,13 +30,18 @@ public class PatientScript : MonoBehaviour
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        
 
-        if(spriteRenderer  != null)
+        if (spriteRenderer  != null)
         {
             //spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
         }
         bloodAmmount = GetRandomBloodAmmount();
+
+        if (currentChar == null)
+        {
+            currentChar = GetRandomChar();
+        }
+        currentChar.ApplyCharacteristics(this);
 
     }
 
@@ -40,13 +49,13 @@ public class PatientScript : MonoBehaviour
     {
         if (!movedToWaitingRoom)
         { 
-            MoveToTarget(); 
+            MoveToTarget(HospitalDoors); 
         }
     }
 
-    public void MoveToTarget()
+    public void MoveToTarget(Vector3 target)
     {
-        Vector2 direction = new Vector2(HospitalDoors.x - transform.position.x, 0f);
+        Vector2 direction = new Vector2(target.x - transform.position.x, 0f);
         rb.linearVelocity = direction.normalized * moveSpeed;
     }
 
@@ -74,6 +83,22 @@ public class PatientScript : MonoBehaviour
         {
             spriteRenderer.sprite = patientSpritesLeft.SpriteList[Random.Range(0, patientSpritesRight.SpriteList.Count)];
         }
+    }
+
+    private PatientCharacteristicsSO GetRandomChar()
+    {
+        PatientCharacteristicsSO charToGive;
+        var rollo = Random.Range(0, 2);
+        if (rollo == 2)
+        {
+            var RandomCharIndex = Random.Range(0, characteristicList.Count);
+            charToGive = characteristicList[RandomCharIndex];
+        }
+        else
+        {
+            charToGive = averageJoeChar;
+        }
+        return charToGive;
     }
 
 }

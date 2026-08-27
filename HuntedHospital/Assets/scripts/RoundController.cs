@@ -23,7 +23,7 @@ public class RoundController : MonoBehaviour
     public GameObject HospitalDoors;
 
     [Header("Listy")]
-    [SerializeField] private List<PatientScript> patientList = new List<PatientScript>();
+    [SerializeField] public List<PatientScript> patientList = new List<PatientScript>();
     [SerializeField] public List<GhostScript> ghostList = new List<GhostScript>();
     public List<BuffsSO> activeBuffs = new List<BuffsSO>();
     public enum RoundPhases
@@ -42,7 +42,8 @@ public class RoundController : MonoBehaviour
     [Header("Stat Multipliers")]
     public float bloodReceivedMultiplier = 1f;
     public float feastSpeedMultiplier = 1f;
-    public int patientCountMultiplier = 0;
+    public int extraPatientCount = 0;
+    public float patientSpawnMultiplier = 1f;
     public int totalPatientsToSpawn;
 
 
@@ -114,6 +115,7 @@ public class RoundController : MonoBehaviour
     {
         currentDay += 1;
         buffManager.DecreaseBuffTimeWithRound();
+        bloodInBank = 0;
     }
 
     public void StartDayPhase()
@@ -134,14 +136,8 @@ public class RoundController : MonoBehaviour
     public void StartFeastPhase()
     {
         roundPhase = RoundPhases.FeastPhase;
-        float feastSpeed = baseFeastSpeed * feastSpeedMultiplier;
-        if(feastSpeedMultiplier < 1)
-        {
-            Debug.Log("SpeedMultiplier is lower than 1");
-        }
-        canStartFeastPhase = false;
+        SceneManager.LoadScene("SlaughterRoom");
 
-        StartCoroutine(Feasting(feastSpeed));
     }
 
     public void EndFeastPhase()
@@ -163,7 +159,7 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator SpawnPatients(float time)
     {
-        totalPatientsToSpawn = patientsToSpawn + patientCountMultiplier;
+        totalPatientsToSpawn = (patientsToSpawn + extraPatientCount) * (int)patientSpawnMultiplier;
         for (int i = 0; i < totalPatientsToSpawn; i++)
         {
             var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];

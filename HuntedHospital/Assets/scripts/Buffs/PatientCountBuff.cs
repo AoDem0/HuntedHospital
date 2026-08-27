@@ -13,11 +13,11 @@ public class PatientCountBuff : BuffsSO
     public override void ModifyStats()
     {
         base.ModifyStats();
-        RoundController.Instance.patientCountMultiplier += extraPatients;
+        RoundController.Instance.extraPatientCount += extraPatients;
     }
 
     public override void UnmodifyStats()
     {
-        RoundController.Instance.patientCountMultiplier -= extraPatients;
+        RoundController.Instance.extraPatientCount -= extraPatients;
     }
 }

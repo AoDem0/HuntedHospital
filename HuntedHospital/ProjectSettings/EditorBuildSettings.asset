@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/deathshop.unity
     guid: e1487bcaf262d27498459e573dc0ee68
+  - enabled: 1
+    path: Assets/Scenes/SlaughterRoom.unity
+    guid: 6282755d90708744d96b3f0f99612d40
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

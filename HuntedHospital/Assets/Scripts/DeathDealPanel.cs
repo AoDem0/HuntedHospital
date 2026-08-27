@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class DeathDealPanel : MonoBehaviour
 {
-    //[SerializeField] private DeathDealSO deathDeal;
     [SerializeField] private TextMeshProUGUI Deal_Name;
     [SerializeField] private TextMeshProUGUI Deal_Description;
     [SerializeField] private TextMeshProUGUI Deal_Cost;
@@ -41,33 +40,6 @@ public class DeathDealPanel : MonoBehaviour
     {
         SC = GameObject.Find("ShopController").GetComponent<ShopController>();
     }
-
-    
-
-    /*public void ReloadPanel(DeathDealSO deal)
-    {
-        if (text == null || button == null) return;
-        button.interactable = true;
-        text.text = "";
-        for (int i = 0; i < deal.Deals.Count; i++)
-        {
-            text.text += deal.Deals[i].dealAmount.ToString() + " " + deal.Deals[i].dealType.ToString() + "\n";
-        }
-
-        text.text += "Price: " + deal.SoulPrice.ToString();
-    }*/
-
-    public void SendDealInfo()
-    {
-        //wyslanie do gamemanagera danych
-        //DeactivateDeathPanel()
-    }
-    /*public void DeactivateDeathPanel()
-    {
-        //text.text = "";
-        button.interactable = false;
-
-    }*/
 
     public void ChooseThisBuff()
     {

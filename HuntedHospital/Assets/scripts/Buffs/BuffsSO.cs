@@ -15,6 +15,7 @@ public class BuffsSO : ScriptableObject
         FeastSpeedBuff,
         BloodReceivedBuff,
         PatientCountBuff,
+        NoPatientPenalty,
     }
 
     public void OnEnable()
