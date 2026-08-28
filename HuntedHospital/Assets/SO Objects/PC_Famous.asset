@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PC_Famous
   m_EditorClassIdentifier: Assembly-CSharp::PC_Famous
   bloodMultiplier: 1.3
-  NoPatientPenalty: {fileID: 0}
+  NoPatientPenalty: {fileID: 11400000, guid: 62b4ab098a141f044a27d0d92c2cc68e, type: 2}

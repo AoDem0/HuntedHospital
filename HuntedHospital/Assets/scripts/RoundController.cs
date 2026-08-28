@@ -46,7 +46,6 @@ public class RoundController : MonoBehaviour
     public float patientSpawnMultiplier = 1f;
     public int totalPatientsToSpawn;
 
-
     [Header(("Fazy rundy"))]
     public RoundPhases roundPhase = RoundPhases.DayStartPhase;
     public bool canStartNewDayPhase = true;
@@ -68,7 +67,6 @@ public class RoundController : MonoBehaviour
         buffManager = GetComponent<BuffManager>();
         debuffManager = GetComponent<DebuffManager>();
         RefreshSceneObjects();
-
     }
 
     private void Update()
@@ -92,8 +90,7 @@ public class RoundController : MonoBehaviour
 
         if (patientList.Count == totalPatientsToSpawn && canEndNewDayPhase)
         {
-            EndDayPhase();
-            
+            EndDayPhase();            
         }
 
         if (canStartFeastPhase)
@@ -161,7 +158,7 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator SpawnPatients(float time)
     {
-        totalPatientsToSpawn = (patientsToSpawn + extraPatientCount) * (int)patientSpawnMultiplier;
+        totalPatientsToSpawn = Mathf.RoundToInt((patientsToSpawn + extraPatientCount) * patientSpawnMultiplier);
         for (int i = 0; i < totalPatientsToSpawn; i++)
         {
             var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
