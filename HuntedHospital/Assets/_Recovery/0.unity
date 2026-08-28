@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 6716777215155543511, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      objectReference: {fileID: 2450030494927696528, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: HospitalDoors
       value: 

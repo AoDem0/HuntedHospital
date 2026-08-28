@@ -48,11 +48,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatientScript
   bloodAmmount: 0
+  rb: {fileID: 0}
   patientSpritesLeft: {fileID: 11400000, guid: c2c74aac9f958b2438b1c70ec85f04f9, type: 2}
   patientSpritesRight: {fileID: 11400000, guid: 3e08d216ccc93f2448a0e12cd1d4509a, type: 2}
   HospitalDoors: {x: 0, y: 0, z: 0}
   moveSpeed: 3
   movedToWaitingRoom: 0
+  currentChar: {fileID: 0}
+  averageJoeChar: {fileID: 11400000, guid: a2d7b5c874dba1d44827fa7374520794, type: 2}
+  characteristicList:
+  - {fileID: 11400000, guid: 473f76e2d3ad5ec449b43c7c7766acb1, type: 2}
+  - {fileID: 11400000, guid: 054983ad65971f949882878e59f8d737, type: 2}
+  - {fileID: 11400000, guid: 873139ae3de857f40aa310c801e65445, type: 2}
+  canGoToExit: 0
 --- !u!212 &8020728397099086104
 SpriteRenderer:
   serializedVersion: 2

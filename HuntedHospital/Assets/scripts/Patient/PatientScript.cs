@@ -9,7 +9,7 @@ public class PatientScript : MonoBehaviour
     float minBloodAmmount = 4;
     Collider2D col;
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public SpritePacjentów patientSpritesLeft;
     public SpritePacjentów patientSpritesRight;
     public Vector3 HospitalDoors;
@@ -51,10 +51,19 @@ public class PatientScript : MonoBehaviour
         { 
             MoveToTarget(HospitalDoors); 
         }
+        
     }
 
     public void MoveToTarget(Vector3 target)
     {
+        float distance = target.x - transform.position.x;
+
+        if(Mathf.Abs(distance) < 0.05f)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         Vector2 direction = new Vector2(target.x - transform.position.x, 0f);
         rb.linearVelocity = direction.normalized * moveSpeed;
     }

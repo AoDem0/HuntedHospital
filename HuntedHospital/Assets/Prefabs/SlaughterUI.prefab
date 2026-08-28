@@ -159,6 +159,7 @@ MonoBehaviour:
   charDescription: {fileID: 4194182760764209339}
   bloodDisplay: {fileID: 7501284417987954298}
   ghostCountDisplay: {fileID: 4143820023247649694}
+  Buttons: {fileID: 0}
 --- !u!1 &263735237206907118
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +454,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1935033008663516621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SlaughterRoomController, Assembly-CSharp
+        m_MethodName: KillPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &724900546266294038
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4307656592258845026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SlaughterRoomController, Assembly-CSharp
+        m_MethodName: LetPatientGo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4031056818846527924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1106,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4912809172604896319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SlaughterRoomController, Assembly-CSharp
+        m_MethodName: DrainBloodFromPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5908405448295928234
 GameObject:
   m_ObjectHideFlags: 0

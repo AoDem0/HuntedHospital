@@ -11,13 +11,20 @@ public class SlaughterUiController : MonoBehaviour
     public TextMeshProUGUI charDescription;
     public TextMeshProUGUI bloodDisplay;
     public TextMeshProUGUI ghostCountDisplay;
-    bool isActive = false;
+    public GameObject Buttons;
+    bool isCharActive = true;
+    bool isButtonsActive = true;
 
     void Awake()
     {
-        if (isActive)
+        if (isCharActive)
         {
             ToggleCharInfo();
+        }
+
+        if (isButtonsActive)
+        {
+            ToggleButtons();
         }
     }
 
@@ -29,9 +36,9 @@ public class SlaughterUiController : MonoBehaviour
 
     public void ToggleCharInfo()
     {
-        isActive = charName.gameObject.activeSelf;
-        charName.gameObject.SetActive(!isActive);
-        charDescription.gameObject.SetActive(!isActive);
+        isCharActive = charName.gameObject.activeSelf;
+        charName.gameObject.SetActive(!isCharActive);
+        charDescription.gameObject.SetActive(!isCharActive);
     }
 
     public void DisplayPatientInfo(PatientScript patient)
@@ -40,4 +47,9 @@ public class SlaughterUiController : MonoBehaviour
         charDescription.text = patient.currentChar.CharDescription;
     }
 
+    public void ToggleButtons()
+    {
+        isButtonsActive = Buttons.activeSelf;
+        Buttons.SetActive(!isButtonsActive);
+    }
 }

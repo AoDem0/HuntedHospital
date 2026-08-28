@@ -114,6 +114,7 @@ public class RoundController : MonoBehaviour
     public void NextRound()
     {
         currentDay += 1;
+        patientList.Clear();
         buffManager.DecreaseBuffTimeWithRound();
         bloodInBank = 0;
     }
@@ -136,8 +137,8 @@ public class RoundController : MonoBehaviour
     public void StartFeastPhase()
     {
         roundPhase = RoundPhases.FeastPhase;
+        MovePatientsToOtherScene();
         SceneManager.LoadScene("SlaughterRoom");
-
     }
 
     public void EndFeastPhase()
@@ -155,6 +156,7 @@ public class RoundController : MonoBehaviour
     {
         SceneManager.LoadScene("MainHospitalScene");
     }
+
     #endregion ------------------------------------------
 
     private IEnumerator SpawnPatients(float time)
@@ -198,7 +200,6 @@ public class RoundController : MonoBehaviour
         patientList.Clear();
         EndFeastPhase();
     }
-
     
     public void PatientEnteredHospital(PatientScript patient)
     {
@@ -206,6 +207,15 @@ public class RoundController : MonoBehaviour
         patientsInHospital += 1;
         patient.transform.position = new Vector3(waitingRoom.x + patientList.Count, waitingRoom.y, 0);
         patient.movedToWaitingRoom = true;
+        patient.rb.linearVelocity = Vector2.zero;
+    }
+
+    public void MovePatientsToOtherScene()
+    {
+        foreach (var patient in patientList)
+        {
+            DontDestroyOnLoad(patient);
+        }
     }
 
     #region ------ SCENE RELOAD ------
@@ -240,4 +250,13 @@ public class RoundController : MonoBehaviour
         }
     }
     #endregion
+
+}
+[System.Serializable]
+public class PatientInfoToMove
+{
+    public int currentBlood;
+    public SpritePacjentów patientSpritesRight;
+    public PatientCharacteristicsSO currentChar;
+
 }

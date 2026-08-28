@@ -6,7 +6,6 @@ public class SlaughterRoomController : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject endPoint;
     public GameObject chair;
-    public GameObject slaughterUI;
     public int currentPatient;
     public int patientsToServe;
     public SlaughterUiController uiController;
@@ -17,6 +16,7 @@ public class SlaughterRoomController : MonoBehaviour
     void Awake()
     {
         RefreshSceneObjects();
+        DragPatientsToScene();
         currentPatient = 0;
         moveTarget = Vector3.zero;
         SpawnNextPatientInRoom();
@@ -28,8 +28,8 @@ public class SlaughterRoomController : MonoBehaviour
     {
         if (patientsToServe <= 0 && !slaughterEnded)
         {
-            RC.EndFeastPhase();
             slaughterEnded = true;
+            RC.EndFeastPhase();
             return;
         }
 
@@ -39,27 +39,29 @@ public class SlaughterRoomController : MonoBehaviour
         {
             patient.MoveToTarget(moveTarget);
             Debug.Log($"Moving patient {currentPatient} to target {moveTarget}");
-        }
-        
-        if (patient.gameObject.transform.position == chair.transform.position && moveTarget != Vector3.zero)
-        {
-            moveTarget = Vector3.zero;
-            uiController.ToggleCharInfo();
-            uiController.DisplayPatientInfo(patient);
-            Debug.Log("Patient reached chair, displaying info");
-        }
-        else if (patient.canGoToExit)
-        {
-            Debug.Log("Patient blood drained, moving to end point");
-            moveTarget = endPoint.transform.position;
+            float distance = moveTarget.x - patient.transform.position.x;
 
-            if(patient.gameObject.transform.position == endPoint.transform.position)
+            if (Mathf.Abs(distance) < 0.05f && moveTarget != Vector3.zero && !patient.canGoToExit)
             {
-                ClearPatient();
-                Debug.Log("Cleared patient after moving to end point");
+                moveTarget = Vector3.zero;
+                uiController.ToggleCharInfo();
+                uiController.ToggleButtons();
+                uiController.DisplayPatientInfo(patient);
+                Debug.Log("Patient reached chair, displaying info");
+            }
+            else if (patient.canGoToExit)
+            {
+                Debug.Log("Patient blood drained, moving to end point");
+                moveTarget = endPoint.transform.position;
+
+                float distanceToEnd = moveTarget.x - patient.transform.position.x;
+                if (Mathf.Abs(distanceToEnd) < 0.05f)
+                {
+                    ClearPatient();
+                    Debug.Log("Cleared patient after moving to end point");
+                }
             }
         }
-
     }
 
     private void SpawnNextPatientInRoom()
@@ -67,6 +69,7 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.transform.position = spawnPoint.transform.position;
         patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left); //to jest do zmiany fest
+        patient.canGoToExit = false;
         moveTarget = chair.transform.position;
     }
 
@@ -79,7 +82,10 @@ public class SlaughterRoomController : MonoBehaviour
         RC.currentGhostCount++;
         Debug.Log($"Patient killed. Blood in bank: {RC.bloodInBank}, Current ghost count: {RC.currentGhostCount}");
         ClearPatient();
+        uiController.ToggleCharInfo();
+        uiController.ToggleButtons();
     }
+
     public void DrainBloodFromPatient()
     {
         var patient = RC.patientList[currentPatient];
@@ -87,7 +93,10 @@ public class SlaughterRoomController : MonoBehaviour
         patient.currentChar.ApplyOnBloodDrainPersonal(patient);
         RC.bloodInBank += (patient.bloodAmmount * 0.4f ) * RC.bloodReceivedMultiplier;
         patient.canGoToExit = true;
+        moveTarget = endPoint.transform.position;
         Debug.Log($"Drained blood from patient. Blood in bank: {RC.bloodInBank}");
+        uiController.ToggleCharInfo();
+        uiController.ToggleButtons();
     }
 
     public void LetPatientGo()
@@ -95,6 +104,10 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.canGoToExit = true;
         Debug.Log($"Patient let go. Current ghost count: {RC.currentGhostCount}");
+        patient.canGoToExit = true;
+        moveTarget = endPoint.transform.position;
+        uiController.ToggleCharInfo();
+        uiController.ToggleButtons();
     }
 
     private void ClearPatient()
@@ -109,6 +122,14 @@ public class SlaughterRoomController : MonoBehaviour
             SpawnNextPatientInRoom();
         }
         Debug.Log($"Cleared patient and updated counters. Current patient index: {currentPatient}, Patients to serve: {patientsToServe}");
+    }
+    
+    public void DragPatientsToScene()
+    {
+        foreach (PatientScript patient in RC.patientList)
+        {
+            SceneManager.MoveGameObjectToScene(patient.gameObject, SceneManager.GetActiveScene());
+        }
     }
 
     #region ------ SCENE RELOAD -------
@@ -136,7 +157,7 @@ public class SlaughterRoomController : MonoBehaviour
         spawnPoint = GameObject.Find("SpawnPointSlaughter");
         endPoint = GameObject.Find("EndPoint");
         chair = GameObject.Find("Chair");
-        slaughterUI = GameObject.Find("SlaughterUI");
+        uiController = GameObject.Find("SlaughterUI").GetComponent<SlaughterUiController>();
     }
     #endregion
 }
