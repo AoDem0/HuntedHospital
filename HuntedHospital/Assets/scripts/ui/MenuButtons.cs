@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
     [SerializeField]private soundManager soundMan;
+    [SerializeField] private Slider[] sliders;
     private void Start()
     {
         soundMan = FindAnyObjectByType<soundManager>();
@@ -31,5 +33,12 @@ public class MenuButtons : MonoBehaviour
     {
         soundMan.Play("uiclick");
         SceneManager.LoadScene("SoundSettings");
+    }
+
+    public void SaveButton()
+    {
+        soundMan.Play("uiclick");
+        //sliders[0];
+
     }
 }

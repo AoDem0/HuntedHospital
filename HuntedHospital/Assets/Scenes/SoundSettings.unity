@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButtons
   soundMan: {fileID: 0}
+  sliders: []
 --- !u!114 &159829801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,6 +2007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButtons
   soundMan: {fileID: 0}
+  sliders:
+  - {fileID: 1415133323}
+  - {fileID: 1462849305}
 --- !u!114 &2096538026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2053,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2096538027}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2096538025}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: SaveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2096538027
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,12 @@ public class Sound
 
     [HideInInspector] public AudioSource source;
 }
+
+public enum SoundType
+{
+    Music,
+    SoundEffect
+}
 public class soundManager : MonoBehaviour
 {
     public Sound[] sounds;
@@ -27,11 +33,21 @@ public class soundManager : MonoBehaviour
             s.source.volume = s.volume;
         }
     }
-    
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, Sound => Sound.soundName == name);
         s.source.Play();
+    }
+
+    public void ChangeVolume(SoundType type, float num)
+    {
+        if (type == SoundType.Music)
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
 }
