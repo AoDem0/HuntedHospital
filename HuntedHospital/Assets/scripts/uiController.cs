@@ -17,6 +17,7 @@ public class uiController : MonoBehaviour
     public ColorForTierScript colorForTier;
 
     RoundController RC;
+    public bool isActive;
 
     private void Awake()
     {
@@ -70,5 +71,12 @@ public class uiController : MonoBehaviour
 
             buffTile.GetComponent<Image>().color = colorForTier.GetColorForTier(buff);
         }
+    }
+    public void ToggleUI()
+    {
+        isActive = patientNumDisplay.gameObject.activeSelf;
+        patientNumDisplay.gameObject.SetActive(!isActive);
+        ghostNumDisplay.gameObject.SetActive(!isActive);
+        bloodAmmountDisplay.gameObject.SetActive(!isActive);
     }
 }

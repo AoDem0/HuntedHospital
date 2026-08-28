@@ -135,6 +135,7 @@ public class RoundController : MonoBehaviour
     {
         roundPhase = RoundPhases.FeastPhase;
         MovePatientsToOtherScene();
+        UI.gameObject.SetActive(false);
         SceneManager.LoadScene("SlaughterRoom");
     }
 
@@ -152,6 +153,7 @@ public class RoundController : MonoBehaviour
     public void EndDealPhase()
     {
         SceneManager.LoadScene("MainHospitalScene");
+        UI.gameObject.SetActive(true);
     }
 
     #endregion ------------------------------------------

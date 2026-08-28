@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc86009e83da5074dbe7f1d6397423d4, type: 3}
   m_Name: NoPatientPenalty
   m_EditorClassIdentifier: Assembly-CSharp::NoPatientPenalty
-  buffName: NoPatientPenalty
+  buffName: "Zabito celebryt\u0119"
   buffDescription: "Dzisiejszego dnia nie przyjdzie do szpitala \u017Caden pacjent"
   buffTier: 1
   buffBaseTime: 2
