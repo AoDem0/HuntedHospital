@@ -15,6 +15,7 @@ public class uiController : MonoBehaviour
     public GameObject buffListContent;
     public GameObject buffTile;
     public ColorForTierScript colorForTier;
+    [SerializeField]private soundManager soundMan;
 
     RoundController RC;
 
@@ -31,6 +32,7 @@ public class uiController : MonoBehaviour
         }
         RC = RoundController.Instance;
         buffListPanel.SetActive(false);
+        soundMan = FindAnyObjectByType<soundManager>();
     }
 
     public void DisplayValues()
@@ -51,6 +53,7 @@ public class uiController : MonoBehaviour
     {
         if (buffListPanel != null)
         {
+            soundMan.Play("uiclick");
             buffListPanel.SetActive(!buffListPanel.activeSelf);
         }
     }

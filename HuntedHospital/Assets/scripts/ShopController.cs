@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ShopController : MonoBehaviour
 {
+    [SerializeField]private soundManager soundMan;
     public List<DeathDealPanel> dealPanels = new List<DeathDealPanel>();
     public List<BuffsSO> allBuffs = new List<BuffsSO>();
     public List<BuffsSO> buffsToUse = new List<BuffsSO>();
@@ -19,6 +20,7 @@ public class ShopController : MonoBehaviour
     public Coroutine WarningCoroutine;
     void Awake()
     {
+        soundMan = FindAnyObjectByType<soundManager>();
         if (dealPanels.Count == 0)
         {
             Debug.Log("Not all panels were found");
@@ -88,6 +90,7 @@ public class ShopController : MonoBehaviour
 
     public void EndDealPhase()
     {
+        soundMan.Play("uiclick");
         RoundController.Instance.EndDealPhase();
     }
 

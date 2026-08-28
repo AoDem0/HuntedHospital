@@ -22,10 +22,13 @@ public enum SoundType
 public class soundManager : MonoBehaviour
 {
     public Sound[] sounds;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip[] musicClips;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        musicSource = GetComponent<AudioSource>();
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -39,7 +42,12 @@ public class soundManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void ChangeVolume(SoundType type, float num)
+    public void ChangeMainMusic(int musicIdx)
+    {
+        musicSource.clip = musicClips[musicIdx];
+    }
+
+    /*public void ChangeVolume(SoundType type, float num)
     {
         if (type == SoundType.Music)
         {
@@ -49,5 +57,5 @@ public class soundManager : MonoBehaviour
         {
             
         }
-    }
+    }*/
 }

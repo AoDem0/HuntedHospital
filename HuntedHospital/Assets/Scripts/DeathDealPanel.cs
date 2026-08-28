@@ -15,6 +15,7 @@ public class DeathDealPanel : MonoBehaviour
     public ColorForTierScript colorForTier;
     public ColorBlock colorsToSet;
     public ShopController SC;
+    [SerializeField]private soundManager soundMan;
 
     public void SetBuffOnDealPanel(BuffsSO buff)
     {
@@ -39,6 +40,7 @@ public class DeathDealPanel : MonoBehaviour
     private void Awake()
     {
         SC = GameObject.Find("ShopController").GetComponent<ShopController>();
+        soundMan = FindAnyObjectByType<soundManager>();
     }
 
     public void ChooseThisBuff()
@@ -47,6 +49,7 @@ public class DeathDealPanel : MonoBehaviour
         {
             if (buff != null)
             {
+                soundMan.Play("buffclick");
                 RoundController.Instance.buffManager.AddBuffToList(buff);
                 Debug.Log($"Buff {buff.buffName} został dodany do aktywnych buffów.");
             }

@@ -12,6 +12,7 @@ public class SlaughterRoomController : MonoBehaviour
     public RoundController RC;
     public Vector3 moveTarget;
     private bool slaughterEnded = false;
+    [SerializeField]private soundManager soundMan;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class SlaughterRoomController : MonoBehaviour
         SpawnNextPatientInRoom();
         patientsToServe = RC.patientList.Count;
         slaughterEnded = false;
+        soundMan = FindAnyObjectByType<soundManager>();
     }
 
     void Update()
@@ -75,6 +77,7 @@ public class SlaughterRoomController : MonoBehaviour
 
     public void KillPatient()
     {
+        soundMan.Play("kill");
         var patient = RC.patientList[currentPatient];
         patient.currentChar.ApplyGlobalDebuffs();
         patient.currentChar.ApplyOnKillGlobal();
@@ -88,6 +91,7 @@ public class SlaughterRoomController : MonoBehaviour
 
     public void DrainBloodFromPatient()
     {
+        soundMan.Play("drain");
         var patient = RC.patientList[currentPatient];
         patient.currentChar.ApplyGlobalDebuffs();
         patient.currentChar.ApplyOnBloodDrainPersonal(patient);
@@ -101,6 +105,7 @@ public class SlaughterRoomController : MonoBehaviour
 
     public void LetPatientGo()
     {
+        soundMan.Play("letgo");
         var patient = RC.patientList[currentPatient];
         patient.canGoToExit = true;
         Debug.Log($"Patient let go. Current ghost count: {RC.currentGhostCount}");
