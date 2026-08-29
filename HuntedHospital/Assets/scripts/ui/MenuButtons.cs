@@ -48,6 +48,7 @@ public class MenuButtons : MonoBehaviour
     {
         soundMan.Play("uiclick");
         SceneManager.LoadScene("HowToPlay");
+    }
     public void NextSlide()
     {
         soundMan.Play("uiclick");
