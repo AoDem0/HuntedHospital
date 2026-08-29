@@ -21,6 +21,10 @@ public class RoundController : MonoBehaviour
     public int currentGhostCount;
     public int patientsToSpawn = 5;
     public int patientsInHospital = 0;
+    public int totalPatientsSpawned = 0;
+    public int totalPatientsKilled = 0;
+    public float totalBlood = 0;
+    public Verdict verdict;
 
     [Header("Ustawienia")]
 
@@ -44,6 +48,12 @@ public class RoundController : MonoBehaviour
         DayStartPhase,
         FeastPhase,
         DealPhase
+    }
+    public enum Verdict
+    {
+        None,
+        Win,
+        Lose,
     }
 
 
@@ -209,6 +219,7 @@ public class RoundController : MonoBehaviour
             }
 
             PS.HospitalDoors = HospitalDoors.transform.position;
+            totalPatientsSpawned++;
 
             yield return new WaitForSeconds(time);
         }
@@ -268,13 +279,15 @@ public class RoundController : MonoBehaviour
     #region ------ END GAME LOGIC ------
     private void LoseTheGame()
     {
-        Debug.Log("Game Over! You have reached the maximum hunger level.");
-        // Implement game over logic here, such as loading a game over scene or displaying a message.
+        verdict = Verdict.Lose;
+        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
+
     }
 
     private void WinTheGame()
     {
-
+        verdict = Verdict.Win;   
+        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
     }
 
     #endregion

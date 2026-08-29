@@ -73,6 +73,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 473f76e2d3ad5ec449b43c7c7766acb1, type: 2}
   - {fileID: 11400000, guid: 054983ad65971f949882878e59f8d737, type: 2}
   - {fileID: 11400000, guid: 873139ae3de857f40aa310c801e65445, type: 2}
+  - {fileID: 11400000, guid: ecdc823d481912f46862ac8b568230d9, type: 2}
   canGoToExit: 0
 --- !u!212 &8020728397099086104
 SpriteRenderer:

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "PC_Sick", menuName = "Patient/Characteristics/Sick")]
 public class PC_Sick : PatientCharacteristicsSO
 {
     public void OnEnable()
