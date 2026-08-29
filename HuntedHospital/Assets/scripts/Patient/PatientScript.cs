@@ -98,7 +98,7 @@ public class PatientScript : MonoBehaviour
     {
         PatientCharacteristicsSO charToGive;
         var rollo = Random.Range(0, 2);
-        if (rollo >=0)
+        if (rollo == 1)
         {
             var RandomCharIndex = Random.Range(0, characteristicList.Count);
             charToGive = characteristicList[RandomCharIndex];
