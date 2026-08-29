@@ -6,8 +6,8 @@ public class PC_Weak : PatientCharacteristicsSO
     public float bloodMultiplier = 0.7f;
     public void OnEnable()
     {
-        CharName = "Słaby";
-        CharDescription = "Ten pacjent jest słaby, posiada mniejszą ilość krwi i czasem go łapie deprecha";
+        CharName = "Weak";
+        CharDescription = "This patient is weak, has a smaller amount of blood, and sometimes gets depressed.";
     }
 
     public override void ApplyCharacteristics(PatientScript patient)

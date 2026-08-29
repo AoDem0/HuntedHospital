@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -232,119 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639567051daae984b937112c07096bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathDealPanel
---- !u!1001 &239122467
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 512787275}
-    m_Modifications:
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -264
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6722117953671767329, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-      propertyPath: m_Name
-      value: DealPanel (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
---- !u!114 &239122468 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4209492695160951184, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-  m_PrefabInstance: {fileID: 239122467}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639567051daae984b937112c07096bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathDealPanel
---- !u!224 &239122469 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
-  m_PrefabInstance: {fileID: 239122467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &466887480
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,10 +264,8 @@ MonoBehaviour:
   dealPanels:
   - {fileID: 1743733803}
   - {fileID: 19321760}
-  - {fileID: 239122468}
   allBuffs:
   - {fileID: 11400000, guid: 02378943ef1345e4aacd0fac80d43822, type: 2}
-  - {fileID: 11400000, guid: ed5a3436f4e829248b75d4885f53e194, type: 2}
   - {fileID: 11400000, guid: 795f2942cb1d72e4a8590c24021698f0, type: 2}
   buffsToUse: []
   GhostWarningObject: {fileID: 2105853420}
@@ -500,7 +385,6 @@ RectTransform:
   - {fileID: 586884257}
   - {fileID: 1743733801}
   - {fileID: 19321759}
-  - {fileID: 239122469}
   - {fileID: 2105853421}
   - {fileID: 1219138941}
   - {fileID: 818913009}
@@ -1642,7 +1526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -400
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.y

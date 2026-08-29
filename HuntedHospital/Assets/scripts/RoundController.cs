@@ -17,7 +17,7 @@ public class RoundController : MonoBehaviour
     public int currentDay;
     public float bloodInBank = 0;
     public int hunger;
-    public float neededBlood = 15f;
+    public float neededBlood = 12f;
     public int currentGhostCount;
     public int patientsToSpawn = 5;
     public int patientsInHospital = 0;
@@ -30,7 +30,7 @@ public class RoundController : MonoBehaviour
 
     public Vector2 waitingRoom = new Vector2(100, 100);
     public int hungerToGameOver = 3;
-    public int maxDaysToWin = 30;
+    public int maxDaysToWin = 15;
 
     [Header("Obiekty")]
     public GameObject patientPrefab;
@@ -80,7 +80,6 @@ public class RoundController : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            //Debug.Log($"Duplikat singletonu ID {GetInstanceID()}, Instance ID {Instance.GetInstanceID()} został zniszczony!");
             Destroy(gameObject);
             return;
         }
@@ -96,8 +95,6 @@ public class RoundController : MonoBehaviour
     {
         UI.DisplayValues();
         RoundManager();
-
-        //Debug.Log($"Current Day: {currentDay}, Current Phase: {roundPhase}, Patients: {patientList.Count}, Ghosts: {ghostList.Count}, Blood Today: {bloodInBank}");
     }
 
     #region ------ RoundHandler ------
@@ -108,7 +105,6 @@ public class RoundController : MonoBehaviour
         {
             canStartNewDayPhase = false;
             StartDayPhase();
-            //Debug.Log("Day phase started");
         }
 
         if (patientList.Count == totalPatientsToSpawn && canEndNewDayPhase)
@@ -120,14 +116,12 @@ public class RoundController : MonoBehaviour
         {
             StartFeastPhase();
             canStartFeastPhase = false;
-            //Debug.Log("Feast phase started");   
         }
 
         if (canStartDealPhase)
         {
             StartDealPhase();
             canStartDealPhase = false;
-            //Debug.Log("Deal phase started");
         }
     }
 
@@ -140,10 +134,6 @@ public class RoundController : MonoBehaviour
         if(bloodInBank < neededBlood)
         {
             hunger += 1;
-        }
-        else
-        {
-            hunger -= 1;
         }
 
         if(hunger >= hungerToGameOver)
@@ -160,7 +150,6 @@ public class RoundController : MonoBehaviour
 
     public void StartDayPhase()
     {
-        Debug.Log($"StartDayPhase() wywołany. Wywołany przez: \n{System.Environment.StackTrace}");
         NextRound();
         roundPhase = RoundPhases.DayStartPhase;  
         StartCoroutine(SpawnPatients(0.5f));  

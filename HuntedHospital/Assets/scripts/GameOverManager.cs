@@ -30,16 +30,16 @@ public class GameOverManager : MonoBehaviour
     {
         if (RC.verdict == RoundController.Verdict.Win)
         {
-            gameOverText.text = "Zwycięstwo!";
+            gameOverText.text = "Victory!";
         }
         else if (RC.verdict == RoundController.Verdict.Lose)
         {
-            gameOverText.text = "Przegrana";
+            gameOverText.text = "Defeat";
         }
 
-        totalBloodDisplay.text = $"Ilość zebranej krwii: {totalBlood}L";
-        totalPatientsDisplay.text = $"Ilość przybyłych pacjentów: {totalPatients}";
-        killedPatientsDisplay.text = $"Ilość Zzbitych pacjentów: {killedPatients}";
+        totalBloodDisplay.text = $"Total blood amount: {totalBlood}L";
+        totalPatientsDisplay.text = $"Total patients arrived: {totalPatients}";
+        killedPatientsDisplay.text = $"Total patients killed: {killedPatients}";
     }
 
     private void GetAllDisplays()
