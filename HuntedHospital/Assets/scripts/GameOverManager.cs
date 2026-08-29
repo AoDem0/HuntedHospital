@@ -13,13 +13,12 @@ public class GameOverManager : MonoBehaviour
     public float totalBlood;
     public int totalPatients;
     public int killedPatients;
-
     private RoundController RC;
 
     void Awake()
     {
         RC = RoundController.Instance;
-        totalBlood = RC.totalBlood;
+        totalBlood = Mathf.Round(RC.totalBlood * 100f) / 100f;
         totalPatients = RC.totalPatientsSpawned;
         killedPatients = RC.totalPatientsKilled;
         GetAllDisplays();
@@ -36,7 +35,7 @@ public class GameOverManager : MonoBehaviour
         {
             gameOverText.text = "Defeat";
         }
-
+        var bloodToDisplay = 
         totalBloodDisplay.text = $"Total blood amount: {totalBlood}L";
         totalPatientsDisplay.text = $"Total patients arrived: {totalPatients}";
         killedPatientsDisplay.text = $"Total patients killed: {killedPatients}";

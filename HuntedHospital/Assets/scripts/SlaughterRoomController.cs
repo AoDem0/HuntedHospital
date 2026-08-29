@@ -82,9 +82,10 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.currentChar.ApplyGlobalDebuffs();
         patient.currentChar.ApplyOnKillGlobal();
-        RC.bloodInBank += (patient.bloodAmmount * RC.bloodReceivedMultiplier);
-        RC.bloodInBank = Mathf.Round(RC.bloodInBank * 100f) / 100f;
-        RC.totalBlood += (patient.bloodAmmount * RC.bloodReceivedMultiplier);
+        var bloodToAdd = (patient.bloodAmmount * RC.bloodReceivedMultiplier);
+        bloodToAdd = Mathf.Round(bloodToAdd * 100f) / 100f;
+        RC.bloodInBank += bloodToAdd;
+        RC.totalBlood += bloodToAdd;
         patient.currentChar.ApplyGlobalDebuffsAfterTakingBlood();
         RC.currentGhostCount++;
         RC.extraPatientCount--;
@@ -102,8 +103,8 @@ public class SlaughterRoomController : MonoBehaviour
         patient.currentChar.ApplyGlobalDebuffs();
         patient.currentChar.ApplyOnBloodDrainPersonal(patient);
         var bloodToAdd = (patient.bloodAmmount * 0.4f) * RC.bloodReceivedMultiplier;
-        RC.bloodInBank += bloodToAdd
-        RC.bloodInBank = Mathf.Round(RC.bloodInBank * 100f) / 100f;
+        bloodToAdd = Mathf.Round(bloodToAdd * 100f) / 100f;
+        RC.bloodInBank += bloodToAdd;
         RC.totalBlood += bloodToAdd;
         patient.currentChar.ApplyGlobalDebuffsAfterTakingBlood();
         patient.canGoToExit = true;
