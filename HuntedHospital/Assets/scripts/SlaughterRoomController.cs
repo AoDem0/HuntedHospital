@@ -74,6 +74,7 @@ public class SlaughterRoomController : MonoBehaviour
         patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left);
         patient.canGoToExit = false;
         moveTarget = chair.transform.position;
+        patient.moveSpeed += 2f;
     }
 
     public void KillPatient()

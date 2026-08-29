@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4209492695160951184, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
+      propertyPath: buff
+      value: 
+      objectReference: {fileID: 11400000, guid: 795f2942cb1d72e4a8590c24021698f0, type: 2}
     - target: {fileID: 6722117953671767329, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_Name
       value: DealPanel (1)
@@ -261,12 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d82cafb8dc19446953221baff3fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  soundMan: {fileID: 0}
   dealPanels:
   - {fileID: 1743733803}
   - {fileID: 19321760}
-  allBuffs:
-  - {fileID: 11400000, guid: 02378943ef1345e4aacd0fac80d43822, type: 2}
-  - {fileID: 11400000, guid: 795f2942cb1d72e4a8590c24021698f0, type: 2}
   buffsToUse: []
   GhostWarningObject: {fileID: 2105853420}
   GhostDisplay: {fileID: 1219138940}
@@ -1203,7 +1205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Za ma\u0142o dusz"
+  m_text: '! Not enough ghosts !'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1317,7 +1319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.5, y: 0}
+  m_AnchoredPosition: {x: -25, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094342160
@@ -1340,7 +1342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Duchy
+  m_text: Ghosts
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1544,6 +1546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4209492695160951184, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
+      propertyPath: buff
+      value: 
+      objectReference: {fileID: 11400000, guid: 02378943ef1345e4aacd0fac80d43822, type: 2}
     - target: {fileID: 6722117953671767329, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_Name
       value: DealPanel

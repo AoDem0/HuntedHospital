@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SoundSettings.unity
     guid: 1771bcc0a2542a34fba065b969e5fb7d
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: 2aac30ac3b1a12745bdddd4557486d46
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

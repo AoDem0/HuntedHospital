@@ -11,7 +11,7 @@ public class DeathDealPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Deal_Cost;
     [SerializeField] private TextMeshProUGUI Deal_Tier;
     [SerializeField] private Button button;
-    [SerializeField] private BuffsSO buff;
+    [SerializeField] public BuffsSO buff;
     public ColorForTierScript colorForTier;
     public ColorBlock colorsToSet;
     public ShopController SC;
