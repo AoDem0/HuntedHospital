@@ -45,6 +45,7 @@ public class soundManager : MonoBehaviour
     public void ChangeMainMusic(int musicIdx)
     {
         musicSource.clip = musicClips[musicIdx];
+        musicSource.Play();
     }
 
     /*public void ChangeVolume(SoundType type, float num)

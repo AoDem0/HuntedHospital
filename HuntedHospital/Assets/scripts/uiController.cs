@@ -46,7 +46,7 @@ public class uiController : MonoBehaviour
         dayNumDisplay.text = RC.currentDay.ToString();
         patientNumDisplay.text = RC.patientsInHospital.ToString();
         ghostNumDisplay.text = RC.currentGhostCount.ToString();
-        bloodAmmountDisplay.text = $"{RC.bloodInBank}L";
+        bloodAmmountDisplay.text = $"{ (Mathf.Round(RC.bloodInBank * 100)) / 100.0}L";
     }
 
     public void ToggleBuffList()

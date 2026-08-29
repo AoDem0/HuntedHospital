@@ -15,6 +15,7 @@ public class RoundController : MonoBehaviour
     public int currentDay;
     public float baseFeastSpeed = 1;
     public float bloodInBank = 0;
+    private soundManager soundMan;
 
     [Header("Obiekty")]
     public GameObject patientPrefab;
@@ -56,13 +57,14 @@ public class RoundController : MonoBehaviour
 
     void Awake()
     {
+        
         if (Instance != null && Instance != this)
         {
             //Debug.Log($"Duplikat singletonu ID {GetInstanceID()}, Instance ID {Instance.GetInstanceID()} został zniszczony!");
             Destroy(gameObject);
             return;
         }
-
+        soundMan = FindAnyObjectByType<soundManager>();
         Instance = this;
         DontDestroyOnLoad(gameObject);
         buffManager = GetComponent<BuffManager>();
@@ -150,11 +152,13 @@ public class RoundController : MonoBehaviour
     {
         roundPhase = RoundPhases.DealPhase;
         SceneManager.LoadScene("deathshop");
+        soundMan.ChangeMainMusic(1);
     }
 
     public void EndDealPhase()
     {
         SceneManager.LoadScene("MainHospitalScene");
+        soundMan.ChangeMainMusic(0);
     }
 
     #endregion ------------------------------------------
