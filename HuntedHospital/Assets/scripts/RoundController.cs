@@ -145,13 +145,14 @@ public class RoundController : MonoBehaviour
         {
             WinTheGame();
         }
-        bloodInBank = 0;
+        
     }
 
     public void StartDayPhase()
     {
         Debug.Log($"StartDayPhase() wywołany. Wywołany przez: \n{System.Environment.StackTrace}");
         NextRound();
+        
         roundPhase = RoundPhases.DayStartPhase;  
         StartCoroutine(SpawnPatients(0.5f));  
     }
@@ -186,6 +187,7 @@ public class RoundController : MonoBehaviour
     {
         SceneManager.LoadScene("MainHospitalScene");
         UI.gameObject.SetActive(true);
+        bloodInBank -= neededBlood;
     }
 
     #endregion ------------------------------------------
