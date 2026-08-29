@@ -7,6 +7,8 @@ public class MenuButtons : MonoBehaviour
 {
     [SerializeField]private soundManager soundMan;
     [SerializeField] private Slider[] sliders;
+    [SerializeField] private GameObject comicsImg;
+    private int comicIdx = 0;
     private void Start()
     {
         soundMan = FindAnyObjectByType<soundManager>();
@@ -20,7 +22,7 @@ public class MenuButtons : MonoBehaviour
     public void GameStart()
     {   
         soundMan.Play("uiclick");
-        SceneManager.LoadScene("MainHospitalScene");
+        SceneManager.LoadScene("Story");
         
     }
 
@@ -40,5 +42,19 @@ public class MenuButtons : MonoBehaviour
         soundMan.Play("uiclick");
         //sliders[0];
 
+    }
+
+    public void NextSlide()
+    {
+        soundMan.Play("uiclick");
+        if (comicIdx >= 1)
+        {
+            SceneManager.LoadScene("MainHospitalScene");
+        }
+        else
+        {
+            comicsImg.SetActive(true);
+            comicIdx += 1;
+        }
     }
 }
