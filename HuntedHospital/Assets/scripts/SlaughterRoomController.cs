@@ -6,6 +6,7 @@ public class SlaughterRoomController : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject endPoint;
     public GameObject chair;
+    public GameObject PatientsDump;
     public int currentPatient;
     public int patientsToServe;
     public SlaughterUiController uiController;
@@ -71,6 +72,7 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.spriteRenderer.sprite = patient.currentSpriteSet.wPrawo;
         patient.transform.position = spawnPoint.transform.position;
+        patient.transform.parent = PatientsDump.transform;
         patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left);
         patient.canGoToExit = false;
         moveTarget = chair.transform.position;
@@ -175,6 +177,7 @@ public class SlaughterRoomController : MonoBehaviour
         endPoint = GameObject.Find("EndPoint");
         chair = GameObject.Find("Chair");
         uiController = GameObject.Find("SlaughterUI").GetComponent<SlaughterUiController>();
+        PatientsDump = GameObject.Find("PatientsDump");
     }
     #endregion
 }

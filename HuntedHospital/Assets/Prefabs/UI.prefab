@@ -691,6 +691,7 @@ MonoBehaviour:
   buffListContent: {fileID: 2879720590358296495}
   buffTile: {fileID: 6800064520837061342, guid: 75b22d56c63fbaa4eae36c347d08bc51, type: 3}
   colorForTier: {fileID: 975065084655770586}
+  soundMan: {fileID: 0}
   isActive: 0
 --- !u!114 &975065084655770586
 MonoBehaviour:
@@ -2173,9 +2174,9 @@ RectTransform:
   m_Father: {fileID: 7070637870226729298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -393.5, y: -20.000061}
-  m_SizeDelta: {x: -813, y: -70.00014}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 132.5, y: -20.000061}
+  m_SizeDelta: {x: 239, y: -70.00012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1335049622845917300
 CanvasRenderer:
