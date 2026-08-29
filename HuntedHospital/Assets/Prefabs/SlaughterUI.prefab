@@ -155,10 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9d95210c6d65448889abb3ad46ee87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlaughterUiController
+  slaughterRC: {fileID: 0}
   charName: {fileID: 7191045829924930075}
   charDescription: {fileID: 4194182760764209339}
   bloodDisplay: {fileID: 7501284417987954298}
   ghostCountDisplay: {fileID: 4143820023247649694}
+  patientsLeftDisplay: {fileID: 0}
   Buttons: {fileID: 0}
 --- !u!1 &263735237206907118
 GameObject:
@@ -1603,7 +1605,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3231956777915045477
 CanvasRenderer:
