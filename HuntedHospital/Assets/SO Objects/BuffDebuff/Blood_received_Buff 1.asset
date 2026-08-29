@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eac9ec953d39a3f4397bce84e1d927ea, type: 3}
-  m_Name: Blood_received_Buff
+  m_Name: Blood_received_Buff 1
   m_EditorClassIdentifier: Assembly-CSharp::BloodReceivedBuff
   buffName: Czerwienica Prawdziwa
-  buffDescription: "Ka\u017Cdy pacj\u0119t posiada zwi\u0119kszon\u0105 ilo\u015B\u0107
+  buffDescription: "Ka\u017Cdy pacjent posiada lekko zwi\u0119kszon\u0105 ilo\u015B\u0107
     krwii"
   buffTier: 1
-  buffBaseTime: 3
+  buffBaseTime: 1
   buffCurrentTime: 0
-  buffCost: 5
+  buffCost: 2
   additionalBloodReceived: 0.1
