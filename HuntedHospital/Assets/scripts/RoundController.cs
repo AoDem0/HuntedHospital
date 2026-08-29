@@ -194,6 +194,7 @@ public class RoundController : MonoBehaviour
         {
             var patient = patientList[i];
             bloodInBank += (patient.bloodAmmount * bloodReceivedMultiplier);
+            bloodInBank = Mathf.Round(bloodInBank * 100f) / 100f;
             patientsInHospital -= 1;
             Destroy(patient);
 
