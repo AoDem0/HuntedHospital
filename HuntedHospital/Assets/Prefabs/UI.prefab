@@ -687,6 +687,7 @@ MonoBehaviour:
   patientNumDisplay: {fileID: 1932510547969823870}
   ghostNumDisplay: {fileID: 1611090425855154950}
   bloodAmmountDisplay: {fileID: 6266443105743669885}
+  hungerDisplay: {fileID: 7617062206324363389}
   buffListPanel: {fileID: 8229568881254866054}
   buffListContent: {fileID: 2879720590358296495}
   buffTile: {fileID: 6800064520837061342, guid: 75b22d56c63fbaa4eae36c347d08bc51, type: 3}

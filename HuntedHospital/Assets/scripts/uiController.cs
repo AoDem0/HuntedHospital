@@ -11,6 +11,7 @@ public class uiController : MonoBehaviour
     public TextMeshProUGUI patientNumDisplay;
     public TextMeshProUGUI ghostNumDisplay;
     public TextMeshProUGUI bloodAmmountDisplay;
+    public TextMeshProUGUI hungerDisplay;
     public GameObject buffListPanel;
     public GameObject buffListContent;
     public GameObject buffTile;
@@ -48,6 +49,7 @@ public class uiController : MonoBehaviour
         patientNumDisplay.text = RC.patientsInHospital.ToString();
         ghostNumDisplay.text = RC.currentGhostCount.ToString();
         bloodAmmountDisplay.text = $"{ (Mathf.Round(RC.bloodInBank * 100)) / 100.0}L";
+        hungerDisplay.text = RC.hunger.ToString();
     }
 
     public void ToggleBuffList()
