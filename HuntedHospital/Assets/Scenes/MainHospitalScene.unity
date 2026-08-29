@@ -830,6 +830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffListContent
       objectReference: {fileID: 0}
+    - target: {fileID: 2966888393121660488, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3720235830098115919, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

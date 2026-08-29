@@ -62,8 +62,6 @@ public class HowToPlayScript : MonoBehaviour
 
         currentPageInt++;
         pages[currentPageInt].gameObject.SetActive(true);
-
-
     }
 
     public void PrevPage()

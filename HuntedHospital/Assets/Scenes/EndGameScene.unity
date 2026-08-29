@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Total patient visited:'
       objectReference: {fileID: 0}
+    - target: {fileID: 5129702569103795919, guid: a6ee2e4008e93e44398b868b494190ab, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5150726390047370788, guid: a6ee2e4008e93e44398b868b494190ab, type: 3}
       propertyPath: m_text
       value: Exit

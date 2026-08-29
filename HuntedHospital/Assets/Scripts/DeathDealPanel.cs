@@ -34,7 +34,6 @@ public class DeathDealPanel : MonoBehaviour
         colorsToSet.pressedColor = choosedColor * 0.8f;
         colorsToSet.selectedColor = choosedColor * 0.6f;
         button.colors = colorsToSet;
-
     }
 
     private void Awake()
