@@ -7,8 +7,8 @@ public class PC_Strong : PatientCharacteristicsSO
 
     public void OnEnable()
     {
-        CharName = "Silny";
-        CharDescription = "Ten pacjent jest silny, zdrowy i posiada większą ilość krwi. Ciekawe czy ćwiczy...";
+        CharName = "Strong";
+        CharDescription = "This patient is strong, healthy, and has a larger amount of blood. I wonder if they work out...";
     }
 
     public override void ApplyCharacteristics(PatientScript patient)

@@ -8,8 +8,8 @@ public class PC_Famous : PatientCharacteristicsSO
 
     public void OnEnable()
     {
-        CharName = "Sławny";
-        CharDescription = "Ten pacjent jest sławny. Jeśli weźmiesz jego krew, dostaniesz bonus do dziennego zbioru krwi. Ludzie lubią sławnych ludzi. Jeśli zaś go zabijesz, jutro nikt nie przyjdzie do szpitala.";
+        CharName = "Star";
+        CharDescription = "This patient is famous. If you take their blood, you'll get a bonus to received blood from this patient. People like famous people. However, if you kill them, tomorrow twice as few patients will come to the hospital.";
     }
 
     public override void ApplyOnKillGlobal()

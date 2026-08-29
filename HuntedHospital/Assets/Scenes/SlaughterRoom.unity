@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: Buttons
       value: 
       objectReference: {fileID: 997044414755583471}
+    - target: {fileID: 5985643346656562402, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+      propertyPath: patientsLeftDisplay
+      value: 
+      objectReference: {fileID: 997044414755583472}
     - target: {fileID: 7828396721764961158, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -904,6 +908,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1493322313553198443, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
   m_PrefabInstance: {fileID: 997044414755583470}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &997044414755583472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7104306829975981576, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+  m_PrefabInstance: {fileID: 997044414755583470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

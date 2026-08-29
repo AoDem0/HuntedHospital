@@ -1,24 +1,27 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NoPatientPenalty", menuName = "Buffs/NoPatientPenalty")]
 public class NoPatientPenalty : BuffsSO
 {
-    public float PatientSpawnMultiplier = 1f;
+    public float PatientSpawnMultiplier = 0.5f;
     public BuffTypes buffType = BuffTypes.NoPatientPenalty;
 
     public override void RecalculateStats()
     {
-        buffBaseTime = 1;
+        buffBaseTime = 2;
         buffCost = 0;
     }
 
     public override void ModifyStats()
     {
-        RoundController.Instance.patientSpawnMultiplier -= PatientSpawnMultiplier;
+        Debug.Log($"NoPatientPenalty zastosowany, multiplayer przed: {RoundController.Instance.patientSpawnMultiplier}");
+        RoundController.Instance.patientSpawnMultiplier *= PatientSpawnMultiplier;
+        Debug.Log($"NoPatientPenalty zastosowany, multiplayer po: {RoundController.Instance.patientSpawnMultiplier}");
     }
 
     public override void UnmodifyStats()
     {
-        RoundController.Instance.patientSpawnMultiplier += PatientSpawnMultiplier;
+        RoundController.Instance.patientSpawnMultiplier /= PatientSpawnMultiplier;
     }
 
 

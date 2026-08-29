@@ -69,6 +69,7 @@ public class SlaughterRoomController : MonoBehaviour
     private void SpawnNextPatientInRoom()
     {
         var patient = RC.patientList[currentPatient];
+        patient.spriteRenderer.sprite = patient.currentSpriteSet.wPrawo;
         patient.transform.position = spawnPoint.transform.position;
         patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left); //to jest do zmiany fest
         patient.canGoToExit = false;
@@ -83,11 +84,15 @@ public class SlaughterRoomController : MonoBehaviour
         patient.currentChar.ApplyOnKillGlobal();
         RC.bloodInBank += (patient.bloodAmmount * RC.bloodReceivedMultiplier);
         RC.bloodInBank = Mathf.Round(RC.bloodInBank * 100f) / 100f;
+        RC.totalBlood += (patient.bloodAmmount * RC.bloodReceivedMultiplier);
+        patient.currentChar.ApplyGlobalDebuffsAfterTakingBlood();
         RC.currentGhostCount++;
+        RC.extraPatientCount--;
         Debug.Log($"Patient killed. Blood in bank: {RC.bloodInBank}, Current ghost count: {RC.currentGhostCount}");
         ClearPatient();
         uiController.ToggleCharInfo();
         uiController.ToggleButtons();
+        RC.totalPatientsKilled++;
     }
 
     public void DrainBloodFromPatient()
@@ -96,8 +101,11 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.currentChar.ApplyGlobalDebuffs();
         patient.currentChar.ApplyOnBloodDrainPersonal(patient);
-        RC.bloodInBank += (patient.bloodAmmount * 0.4f ) * RC.bloodReceivedMultiplier;
+        var bloodToAdd = (patient.bloodAmmount * 0.4f) * RC.bloodReceivedMultiplier;
+        RC.bloodInBank += bloodToAdd
         RC.bloodInBank = Mathf.Round(RC.bloodInBank * 100f) / 100f;
+        RC.totalBlood += bloodToAdd;
+        patient.currentChar.ApplyGlobalDebuffsAfterTakingBlood();
         patient.canGoToExit = true;
         moveTarget = endPoint.transform.position;
         Debug.Log($"Drained blood from patient. Blood in bank: {RC.bloodInBank}");

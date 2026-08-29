@@ -5,7 +5,7 @@ public class PC_None : PatientCharacteristicsSO
 {
     public void OnEnable()
     {
-        CharName = "Brak";
-        CharDescription = "Ta jednostka to average Joe, szara mysz, nikt specjalny, jałowy jak chleb. Nikt nawet nie zauważy, że zniknął.";
+        CharName = "Average Joe";
+        CharDescription = "This patient is an average Joe, a gray mouse, nothing special, as bland as bread. Nobody will even notice that they disappeared.";
     }
 }

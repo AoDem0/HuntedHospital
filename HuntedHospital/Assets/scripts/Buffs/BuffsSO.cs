@@ -26,7 +26,7 @@ public class BuffsSO : ScriptableObject
     public virtual void RecalculateStats()
     {
         buffBaseTime = buffTier + 2;
-        buffCost = buffTier * 5;
+        buffCost = buffTier * 2;
     }
 
     public virtual void ModifyStats() 

@@ -8,10 +8,10 @@ public class PatientScript : MonoBehaviour
     float maxBloodAmmount = 6;
     float minBloodAmmount = 4;
     Collider2D col;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public Rigidbody2D rb;
-    public SpritePacjentów patientSpritesLeft;
-    public SpritePacjentów patientSpritesRight;
+    public PatientSprites[] patientSprites;
+    public PatientSprites currentSpriteSet;
     public Vector3 HospitalDoors;
     public float moveSpeed = 3f;
     public bool movedToWaitingRoom = false;
@@ -50,8 +50,7 @@ public class PatientScript : MonoBehaviour
         if (!movedToWaitingRoom)
         { 
             MoveToTarget(HospitalDoors); 
-        }
-        
+        }        
     }
 
     public void MoveToTarget(Vector3 target)
@@ -84,13 +83,14 @@ public class PatientScript : MonoBehaviour
 
     public void SetSpriteForSide(PatientSpawnSide side)
     {
+        currentSpriteSet = patientSprites[Random.Range(0, patientSprites.Length)];
         if (side == PatientSpawnSide.Left)
         {
-            spriteRenderer.sprite = patientSpritesRight.SpriteList[Random.Range(0, patientSpritesLeft.SpriteList.Count)];
+            spriteRenderer.sprite = currentSpriteSet.wPrawo;
         }
         else if (side == PatientSpawnSide.Right)
         {
-            spriteRenderer.sprite = patientSpritesLeft.SpriteList[Random.Range(0, patientSpritesRight.SpriteList.Count)];
+            spriteRenderer.sprite = currentSpriteSet.wLewo;
         }
     }
 
@@ -98,7 +98,7 @@ public class PatientScript : MonoBehaviour
     {
         PatientCharacteristicsSO charToGive;
         var rollo = Random.Range(0, 2);
-        if (rollo == 2)
+        if (rollo == 1)
         {
             var RandomCharIndex = Random.Range(0, characteristicList.Count);
             charToGive = characteristicList[RandomCharIndex];

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2854a68f72c689545a459b57cf0629cd, type: 3}
   m_Name: Patient_Count_Buff
   m_EditorClassIdentifier: Assembly-CSharp::PatientCountBuff
-  buffName: "Przyjd\u017A ze znajomym"
-  buffDescription: "Do szpitala przybywa wi\u0119cej pacjent\xF3w"
+  buffName: Rendez-vous
+  buffDescription: More patients will arrive to hospital.
   buffTier: 1
   buffBaseTime: 3
   buffCurrentTime: 0
-  buffCost: 5
+  buffCost: 2
   extraPatients: 1
   buffType: 2

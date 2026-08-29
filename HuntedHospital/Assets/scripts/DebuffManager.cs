@@ -4,9 +4,8 @@ using UnityEngine;
 public class DebuffManager : MonoBehaviour
 {
     public static DebuffManager instance { get; private set; }
-    public int threshold1 = 25;
-    public int threshold2 = 50;
-    public int threshold3 = 75;
+    public int threshold1 = 4;
+    public int threshold2 = 6;
     public float patientsDebuffMultiplier = 1f;
     private float thresholdDebuff = 0.25f;
     private int GhostCount;
@@ -47,13 +46,9 @@ public class DebuffManager : MonoBehaviour
         {
             patientsDebuffMultiplier = 1f - thresholdDebuff;
         }
-        else if (GhostCount > threshold2 && GhostCount < threshold3)
+        else if (GhostCount > threshold2)
         {
             patientsDebuffMultiplier = 1f - 2 * thresholdDebuff;
-        }
-        else if (GhostCount > threshold3)
-        {
-            patientsDebuffMultiplier = 1f - 3 * thresholdDebuff;
         }
         else
         {

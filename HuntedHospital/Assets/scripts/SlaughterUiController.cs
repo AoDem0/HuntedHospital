@@ -7,16 +7,22 @@ using UnityEngine.UI;
 
 public class SlaughterUiController : MonoBehaviour
 {
+    public SlaughterRoomController slaughterRC;
     public TextMeshProUGUI charName;
     public TextMeshProUGUI charDescription;
     public TextMeshProUGUI bloodDisplay;
     public TextMeshProUGUI ghostCountDisplay;
+    public TextMeshProUGUI patientsLeftDisplay;
     public GameObject Buttons;
     bool isCharActive = true;
     bool isButtonsActive = true;
 
     void Awake()
     {
+        if (slaughterRC == null)
+        {
+            slaughterRC = GameObject.Find("SlaughterController").GetComponent<SlaughterRoomController>();
+        }
         if (isCharActive)
         {
             ToggleCharInfo();
@@ -32,6 +38,7 @@ public class SlaughterUiController : MonoBehaviour
     {
         bloodDisplay.text = RoundController.Instance.bloodInBank.ToString();
         ghostCountDisplay.text = RoundController.Instance.currentGhostCount.ToString();
+        patientsLeftDisplay.text = slaughterRC.patientsToServe.ToString();
     }
 
     public void ToggleCharInfo()

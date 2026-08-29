@@ -9,4 +9,5 @@ public class PatientCharacteristicsSO : ScriptableObject
     public virtual void ApplyGlobalDebuffs() { }
     public virtual void ApplyOnKillGlobal() { }
     public virtual void ApplyOnBloodDrainPersonal(PatientScript patient) { }
+    public virtual void ApplyGlobalDebuffsAfterTakingBlood() { }
 }
