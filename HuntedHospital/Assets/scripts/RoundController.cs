@@ -25,6 +25,7 @@ public class RoundController : MonoBehaviour
     public int totalPatientsSpawned = 0;
     public int totalPatientsKilled = 0;
     public float totalBlood = 0;
+    public int totalPatientsToSpawn;
     public Verdict verdict;
 
     [Header("Ustawienia")]
@@ -63,7 +64,6 @@ public class RoundController : MonoBehaviour
     public float feastSpeedMultiplier = 1f;
     public int extraPatientCount = 0;
     public float patientSpawnMultiplier = 1f;
-    public int totalPatientsToSpawn;
 
     [Header(("Fazy rundy"))]
     public RoundPhases roundPhase = RoundPhases.DayStartPhase;

@@ -41,4 +41,10 @@ public class MenuButtons : MonoBehaviour
         //sliders[0];
 
     }
+
+    public void HowToPlayPage()
+    {
+        soundMan.Play("uiclick");
+        SceneManager.LoadScene("HowToPlay");
+    }
 }
