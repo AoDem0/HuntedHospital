@@ -77,7 +77,6 @@ public class PatientScript : MonoBehaviour
         if (collision.CompareTag("HospitalDoor"))
         {
             RoundController.Instance.PatientEnteredHospital(this);
-            Debug.Log($"Patient entered the hospital with {bloodAmmount} blood.");
         }
     }
 

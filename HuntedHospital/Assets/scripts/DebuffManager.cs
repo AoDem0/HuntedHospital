@@ -36,8 +36,7 @@ public class DebuffManager : MonoBehaviour
             RC = RoundController.Instance;
             if (RC != null)
             {
-                Debug.LogWarning("RoundController instance was null in DebuffManager. Refreshed the reference.");
-                return;
+\                return;
             }
         }
         GhostCount = RC.currentGhostCount;

@@ -22,7 +22,6 @@ public class ColorForTierScript : MonoBehaviour
                 ColorToReturn = Tier3;
                 break;
             default:
-                Debug.LogWarning("Tier jest poza skalą || jest jakiś bug");
                 ColorToReturn = Color.white;
                 break;
         }

@@ -14,9 +14,7 @@ public class NoPatientPenalty : BuffsSO
 
     public override void ModifyStats()
     {
-        Debug.Log($"NoPatientPenalty zastosowany, multiplayer przed: {RoundController.Instance.patientSpawnMultiplier}");
         RoundController.Instance.patientSpawnMultiplier *= PatientSpawnMultiplier;
-        Debug.Log($"NoPatientPenalty zastosowany, multiplayer po: {RoundController.Instance.patientSpawnMultiplier}");
     }
 
     public override void UnmodifyStats()

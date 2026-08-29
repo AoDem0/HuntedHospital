@@ -21,10 +21,6 @@ public class ShopController : MonoBehaviour
     void Awake()
     {
         soundMan = FindAnyObjectByType<soundManager>();
-        if (dealPanels.Count == 0)
-        {
-            Debug.Log("Not all panels were found");
-        }
         RandomizeBuffTier(dealPanels);
         RefreshSceneObjects();
         GhostCountForTest = RoundController.Instance.currentGhostCount;
@@ -108,11 +104,6 @@ public class ShopController : MonoBehaviour
         GhostWarningObject = GameObject.Find("GhostWarningObject");
         GhostDisplay = GameObject.Find("GhostDisplayAtShop");
         GhostCountDisplay = GhostDisplay.transform.Find("GhostNumDisplayAtShop").GetComponent<TextMeshProUGUI>();
-
-        if (GhostWarningObject == null || GhostDisplay == null)
-        {
-            Debug.LogWarning("Nie wszystkie komponenty zostały pobrane");
-        }
     }
     #endregion
 }

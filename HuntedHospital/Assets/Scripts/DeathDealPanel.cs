@@ -50,18 +50,12 @@ public class DeathDealPanel : MonoBehaviour
             {
                 soundMan.Play("buffclick");
                 RoundController.Instance.buffManager.AddBuffToList(buff);
-                Debug.Log($"Buff {buff.buffName} został dodany do aktywnych buffów.");
-            }
-            else
-            {
-                Debug.LogWarning("Nie wybrano żadnego buffa.");
             }
             RoundController.Instance.EndDealPhase();
         }
         else if(RoundController.Instance.currentGhostCount < buff.buffCost)
         {
             SC.TriggerNotEnoguhGhosts();
-            Debug.LogWarning("Nie masz wystarczającej ilości dusz, aby wybrać ten buff.");
         }
 
     }
