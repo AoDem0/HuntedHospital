@@ -27,17 +27,16 @@ public class GameOverManager : MonoBehaviour
 
     public void DisplayEndgameStats(RoundController.Verdict verdict)
     {
-        if (RC.verdict == RoundController.Verdict.Win)
+        if (verdict == RoundController.Verdict.Win)
         {
             gameOverText.text = "Victory!";
         }
-        else if (RC.verdict == RoundController.Verdict.Lose)
+        else if (verdict == RoundController.Verdict.Lose)
         {
             gameOverText.text = "Defeat";
         }
-        var bloodToDisplay = 
-        totalBloodDisplay.text = $"Total blood amount: {totalBlood}L";
-        totalPatientsDisplay.text = $"Total patients arrived: {totalPatients}";
+        totalBloodDisplay.text = $"Total blood collected: {totalBlood}L";
+        totalPatientsDisplay.text = $"Total patients visited: {totalPatients}";
         killedPatientsDisplay.text = $"Total patients killed: {killedPatients}";
     }
 
@@ -50,5 +49,10 @@ public class GameOverManager : MonoBehaviour
             totalPatientsDisplay = GameObject.Find("TotalPatientsDisplay").GetComponent<TextMeshProUGUI>();
             killedPatientsDisplay = GameObject.Find("TotalKilledPatientsDisplay").GetComponent<TextMeshProUGUI>();            
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
