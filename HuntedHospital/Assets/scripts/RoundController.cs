@@ -11,10 +11,22 @@ public class RoundController : MonoBehaviour
     public BuffManager buffManager { get; private set; }
     public DebuffManager debuffManager { get; private set; }
 
-    public List<GameObject> spawnPoints = new List<GameObject>();
-    public int currentDay;
     public float baseFeastSpeed = 1;
+
+    [Header("Statystyki")]
+    public int currentDay;
     public float bloodInBank = 0;
+    public int hunger;
+    public float neededBlood = 15f;
+    public int currentGhostCount;
+    public int patientsToSpawn = 5;
+    public int patientsInHospital = 0;
+
+    [Header("Ustawienia")]
+
+    public Vector2 waitingRoom = new Vector2(100, 100);
+    public int hungerToGameOver = 3;
+    public int maxDaysToWin = 30;
 
     [Header("Obiekty")]
     public GameObject patientPrefab;
@@ -26,6 +38,7 @@ public class RoundController : MonoBehaviour
     [SerializeField] public List<PatientScript> patientList = new List<PatientScript>();
     [SerializeField] public List<GhostScript> ghostList = new List<GhostScript>();
     public List<BuffsSO> activeBuffs = new List<BuffsSO>();
+    public List<GameObject> spawnPoints = new List<GameObject>();
     public enum RoundPhases
     {
         DayStartPhase,
@@ -33,11 +46,6 @@ public class RoundController : MonoBehaviour
         DealPhase
     }
 
-    public int patientsToSpawn = 5;
-    public int patientsInHospital = 0;
-    public int currentGhostCount;
-    public Vector2 spawnPoint;
-    public Vector2 waitingRoom = new Vector2(100, 100);
 
     [Header("Stat Multipliers")]
     public float bloodReceivedMultiplier = 1f;
@@ -52,6 +60,11 @@ public class RoundController : MonoBehaviour
     public bool canEndNewDayPhase = false;
     public bool canStartFeastPhase = false;
     public bool canStartDealPhase = false;
+
+    void Start()
+    {
+        hunger = 0;
+    }
 
     void Awake()
     {
@@ -113,6 +126,25 @@ public class RoundController : MonoBehaviour
         currentDay += 1;
         patientList.Clear();
         buffManager.DecreaseBuffTimeWithRound();
+        
+        if(bloodInBank < neededBlood)
+        {
+            hunger += 1;
+        }
+        else
+        {
+            hunger -= 1;
+        }
+
+        if(hunger >= hungerToGameOver)
+        {
+            LoseTheGame();
+        }
+
+        if(currentDay > maxDaysToWin)
+        {
+            WinTheGame();
+        }
         bloodInBank = 0;
     }
 
@@ -182,23 +214,6 @@ public class RoundController : MonoBehaviour
         }
         canEndNewDayPhase = true;
     }
-
-    private IEnumerator Feasting(float time)
-    {
-        for (int i = patientList.Count - 1; i >= 0; i--)
-        {
-            var patient = patientList[i];
-            bloodInBank += (patient.bloodAmmount * bloodReceivedMultiplier);
-            patientsInHospital -= 1;
-            Destroy(patient);
-
-            currentGhostCount++;
-
-            yield return new WaitForSeconds(time);
-        }
-        patientList.Clear();
-        EndFeastPhase();
-    }
     
     public void PatientEnteredHospital(PatientScript patient)
     {
@@ -250,12 +265,17 @@ public class RoundController : MonoBehaviour
     }
     #endregion
 
-}
-[System.Serializable]
-public class PatientInfoToMove
-{
-    public int currentBlood;
-    public SpritePacjentów patientSpritesRight;
-    public PatientCharacteristicsSO currentChar;
+    #region ------ END GAME LOGIC ------
+    private void LoseTheGame()
+    {
+        Debug.Log("Game Over! You have reached the maximum hunger level.");
+        // Implement game over logic here, such as loading a game over scene or displaying a message.
+    }
 
+    private void WinTheGame()
+    {
+
+    }
+
+    #endregion
 }
