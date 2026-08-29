@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -638558805, guid: 59914ca41f36b1848a5420a6631e4c20, type: 3}
-  m_Color: {r: 0.8773585, g: 0.07035423, b: 0.07035423, a: 1}
+  m_Color: {r: 0.8773585, g: 0.07035423, b: 0.07035423, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -772,6 +772,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1885180890}
+    - target: {fileID: 2670882377291731301, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20.000032
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670882377291731301, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.999985
+      objectReference: {fileID: 0}
     - target: {fileID: 5448702223616699805, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -784,6 +792,14 @@ PrefabInstance:
       propertyPath: patientsLeftDisplay
       value: 
       objectReference: {fileID: 997044414755583472}
+    - target: {fileID: 7687968675367101828, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1353749880}
+    - target: {fileID: 7687968675367101828, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7828396721764961158, guid: 8bdecc9f39dca0444b3d90093ea79760, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
