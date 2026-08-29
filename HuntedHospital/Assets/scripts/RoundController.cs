@@ -38,6 +38,7 @@ public class RoundController : MonoBehaviour
     public GameObject ghostPrefab;
     public uiController UI;
     public GameObject HospitalDoors;
+    [SerializeField] private GameObject skipDayImg;
 
     [Header("Listy")]
     [SerializeField] public List<PatientScript> patientList = new List<PatientScript>();
@@ -127,6 +128,15 @@ public class RoundController : MonoBehaviour
         }
     }
 
+    private IEnumerator SkipThisDay()
+    {
+        skipDayImg.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        skipDayImg.SetActive(false);
+        StartDealPhase();
+        canStartDealPhase = false;
+    }
+
     public void NextRound()
     {
         currentDay += 1;
@@ -153,8 +163,16 @@ public class RoundController : MonoBehaviour
     public void StartDayPhase()
     {
         NextRound();
-        roundPhase = RoundPhases.DayStartPhase;  
-        StartCoroutine(SpawnPatients(0.5f));  
+        roundPhase = RoundPhases.DayStartPhase;
+        if (Mathf.RoundToInt((patientsToSpawn + extraPatientCount) * patientSpawnMultiplier) <= 0)
+        {
+            StartCoroutine(SkipThisDay());
+        }
+        else
+        {
+          StartCoroutine(SpawnPatients(0.5f));    
+        }
+        
     }
 
     public void EndDayPhase()
