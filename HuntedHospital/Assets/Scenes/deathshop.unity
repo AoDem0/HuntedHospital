@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -264
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -264
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d82cafb8dc19446953221baff3fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  soundMan: {fileID: 0}
   dealPanels:
   - {fileID: 1743733803}
   - {fileID: 19321760}
@@ -1646,7 +1647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -264
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 431185460497693086, guid: 980f9bf8602158347b30da09bd0a5cb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
