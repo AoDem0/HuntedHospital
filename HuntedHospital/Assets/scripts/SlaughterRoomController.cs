@@ -71,7 +71,7 @@ public class SlaughterRoomController : MonoBehaviour
         var patient = RC.patientList[currentPatient];
         patient.spriteRenderer.sprite = patient.currentSpriteSet.wPrawo;
         patient.transform.position = spawnPoint.transform.position;
-        patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left); //to jest do zmiany fest
+        patient.SetSpriteForSide(PatientScript.PatientSpawnSide.Left);
         patient.canGoToExit = false;
         moveTarget = chair.transform.position;
     }
