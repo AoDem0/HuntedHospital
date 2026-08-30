@@ -104,6 +104,7 @@ public class RoundController : MonoBehaviour
 
     private void RoundManager()
     {
+        
         if (canStartNewDayPhase)
         {
             canStartNewDayPhase = false;
@@ -123,6 +124,7 @@ public class RoundController : MonoBehaviour
 
         if (canStartDealPhase)
         {
+            
             StartDealPhase();
             canStartDealPhase = false;
         }
@@ -130,11 +132,16 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator SkipThisDay()
     {
+        
         skipDayImg.SetActive(true);
         yield return new WaitForSeconds(3f);
         skipDayImg.SetActive(false);
-        StartDealPhase();
-        canStartDealPhase = false;
+        if (SceneManager.GetActiveScene().name != "EndGameScene")
+        {
+           StartDealPhase();
+            canStartDealPhase = false; 
+        }
+        
     }
 
     public void NextRound()
