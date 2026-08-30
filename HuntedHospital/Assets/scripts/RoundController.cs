@@ -172,6 +172,7 @@ public class RoundController : MonoBehaviour
         {
           StartCoroutine(SpawnPatients(0.5f));    
         }
+        Debug.Log(hunger);
         
     }
 
@@ -291,14 +292,22 @@ public class RoundController : MonoBehaviour
     private void LoseTheGame()
     {
         verdict = Verdict.Lose;
-        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
+        canStartNewDayPhase = false;
+     canEndNewDayPhase = false;
+     canStartFeastPhase = false;
+     canStartDealPhase = false;
+        SceneManager.LoadScene("EndGameScene");
 
     }
 
     private void WinTheGame()
     {
         verdict = Verdict.Win;   
-        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
+        canStartNewDayPhase = false;
+        canEndNewDayPhase = false;
+        canStartFeastPhase = false;
+        canStartDealPhase = false;
+        SceneManager.LoadScene("EndGameScene");
     }
 
     #endregion
