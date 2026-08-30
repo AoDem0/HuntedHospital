@@ -560,6 +560,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6716777215155543511, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+      propertyPath: skipDayImg
+      value: 
+      objectReference: {fileID: 1833706162}
+    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: HospitalDoors
       value: 
       objectReference: {fileID: 0}
@@ -567,6 +571,10 @@ PrefabInstance:
       propertyPath: dayNumDisplay
       value: 
       objectReference: {fileID: 1782797703}
+    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+      propertyPath: patientsToSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: patientNumDisplay
       value: 
@@ -864,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836513491051478485, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0007826103
+      value: -0.0000046656382
       objectReference: {fileID: 0}
     - target: {fileID: 4056611369782822489, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_HorizontalScrollbar
@@ -2883,6 +2891,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1833706162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2935634123200651362, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
+  m_PrefabInstance: {fileID: 1318330905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1853244547
 GameObject:
   m_ObjectHideFlags: 0
