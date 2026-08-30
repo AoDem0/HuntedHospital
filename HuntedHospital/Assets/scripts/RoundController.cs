@@ -164,7 +164,15 @@ public class RoundController : MonoBehaviour
         {
             WinTheGame();
         }
-        bloodInBank = 0;
+
+        if (currentDay != 1)
+        {
+          bloodInBank = bloodInBank - neededBlood;
+          bloodInBank = Mathf.Round(bloodInBank * 100) / 100.0f;
+          bloodInBank = Mathf.Clamp(bloodInBank, 0, 100000);
+          
+        }
+        
     }
 
     public void StartDayPhase()
@@ -215,6 +223,7 @@ public class RoundController : MonoBehaviour
         SceneManager.LoadScene("MainHospitalScene");
         soundMan.ChangeMainMusic(0);
         UI.gameObject.SetActive(true);
+        
     }
 
     #endregion ------------------------------------------
