@@ -298,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985080603371461541, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250544465423871672, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
       propertyPath: soundMan
       value: 
@@ -305,6 +309,17 @@ PrefabInstance:
     - target: {fileID: 2846020816005397576, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
       propertyPath: m_Name
       value: HTPMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226942904528595625, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268214410460223978, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_text
+      value: "Blood\n\nThe sweetest cherry, the pi\xE8ce de r\xE9sistance \nand the
+        main reason why are you doing this\nTHE BLOOD\nCollect 10l of blood each
+        day to feed the poor familes.\nIf you fail, you will receive one hunger point
+        for each failure.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4133973556009992315, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
       propertyPath: m_Pivot.x
@@ -386,9 +401,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4997810955186338928, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683091326794114399, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788891517017550078, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201659974749460230, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8503975051016183971, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514109400048064751, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715171663818494557, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5160383632015908918, guid: 8b32735c1ae5f6447a30599299d83008, type: 3}
