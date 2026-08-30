@@ -49,7 +49,7 @@ public class uiController : MonoBehaviour
         patientNumDisplay.text = RC.patientsInHospital.ToString();
         ghostNumDisplay.text = RC.currentGhostCount.ToString();
         bloodAmmountDisplay.text = $"{ (Mathf.Round(RC.bloodInBank * 100)) / 100.0}L";
-        hungerDisplay.text = (RC.hunger - 1).ToString();
+        hungerDisplay.text = (RC.hunger).ToString();
 
     }
 
