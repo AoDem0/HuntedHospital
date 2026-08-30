@@ -9,7 +9,7 @@ public class PC_Famous : PatientCharacteristicsSO
     public void OnEnable()
     {
         CharName = "Star";
-        CharDescription = "This patient is famous. If you take their blood, you'll get a bonus to received blood from this patient. People like famous people. However, if you kill them, tomorrow twice as few patients will come to the hospital.";
+        CharDescription = "This patient is famous. If you take their blood, you'll get a bonus to received blood from this patient. If you kill them, less patients will come.";
     }
 
     public override void ApplyOnKillGlobal()

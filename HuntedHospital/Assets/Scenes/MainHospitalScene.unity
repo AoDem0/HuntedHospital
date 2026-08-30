@@ -655,6 +655,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1833706162}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
+      propertyPath: neededBlood
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: HospitalDoors
       value: 
       objectReference: {fileID: 0}
@@ -1059,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836513491051478485, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0010055042
+      value: -0.000111491
       objectReference: {fileID: 0}
     - target: {fileID: 4056611369782822489, guid: 8f0636ea943c3024bb474a2b4bf5dcfa, type: 3}
       propertyPath: m_HorizontalScrollbar

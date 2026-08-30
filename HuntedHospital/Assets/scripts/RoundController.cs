@@ -18,7 +18,7 @@ public class RoundController : MonoBehaviour
     public float bloodInBank = 0;
     private soundManager soundMan;
     public int hunger;
-    public float neededBlood = 12f;
+    public float neededBlood = 10f;
     public int currentGhostCount;
     public int patientsToSpawn = 5;
     public int patientsInHospital = 0;
