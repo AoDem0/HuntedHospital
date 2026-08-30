@@ -150,6 +150,16 @@ public class RoundController : MonoBehaviour
         patientList.Clear();
         buffManager.DecreaseBuffTimeWithRound();
         
+        if (currentDay%2 == 0 && totalPatientsToSpawn < 10)
+        {
+            extraPatientCount++;
+        }
+        else if (currentDay%2 == 0)
+        {
+            extraPatientCount--;
+        }
+        Mathf.Clamp(extraPatientCount, 0, 10);
+
         if(bloodInBank < neededBlood)
         {
             hunger += 1;
