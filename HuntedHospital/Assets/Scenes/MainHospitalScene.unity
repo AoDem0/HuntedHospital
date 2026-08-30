@@ -668,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: hungerToGameOver
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5508224209428447848, guid: c8337ac9bd92e6545ab3ce237e03c18b, type: 3}
       propertyPath: patientNumDisplay

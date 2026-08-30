@@ -150,11 +150,16 @@ public class RoundController : MonoBehaviour
         patientList.Clear();
         buffManager.DecreaseBuffTimeWithRound();
         
-        if(bloodInBank < neededBlood)
+        if(bloodInBank < neededBlood && currentDay != 1)
         {
             hunger += 1;
         }
-
+        else
+        {
+            hunger -= 1;
+            
+        }
+        hunger = Mathf.Clamp(hunger, 0, 10000);
         if(hunger >= hungerToGameOver)
         {
             LoseTheGame();
