@@ -24,9 +24,17 @@ public class soundManager : MonoBehaviour
     public Sound[] sounds;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioClip[] musicClips;
+    private static soundManager instance;
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
         musicSource = GetComponent<AudioSource>();
         foreach (Sound s in sounds)
